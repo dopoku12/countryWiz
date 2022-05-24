@@ -2,9 +2,7 @@ function Nav() {
     return (
         <nav>
             <ul>
-                <li>
-
-                </li>
+                nav stuff
             </ul>
         </nav>
     )
