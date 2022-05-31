@@ -1,0 +1,40 @@
+@use "map";
+
+* {
+  padding: 0%;
+  margin: 0%;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+body {
+  background-color: azure;
+}
+
+.left-background {
+  background-position: left;
+  background-color: blanchedalmond;
+  height: 100vh;
+  width: 40%;
+}
+
+nav {
+  background-color: aquamarine;
+  height: 50%;
+  .input-group {
+    width: 50%;
+    #search-box {
+      width: 80%;
+      border-radius: 5%;
+    }
+  }
+  .header-nav-ul {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}

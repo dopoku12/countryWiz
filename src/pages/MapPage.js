@@ -1,13 +1,14 @@
-import Map from "../components/Map"
+import TomTom from "../components/TomTom"
 
-function Mappage() {
+function MapPage() {
 
     return (
-        <main>
-            <Map />
-
-        </main>
+        <div>
+            <main>
+                <TomTom />
+            </main>
+        </div>
     )
 }
 
-export default Mappage
+export default MapPage
