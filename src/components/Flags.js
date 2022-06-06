@@ -1,12 +1,10 @@
 function Flags() {
     return (
-
-        <main className="country-flag">
-
-        </main>
-
-
-
+        <header className="country-flag">
+            <h1>
+                FLAG
+            </h1>
+        </header>
     )
 }
 export default Flags
