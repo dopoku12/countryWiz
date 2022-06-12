@@ -1,11 +1,16 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
-import { FaGithub, FaLinkedin, FaEnvelope, FaMap, FaHome, FaRocket, FaSearch } from 'react-icons/fa'
+import { BrowserRouter, Routes, Route, Link, useLocation, useNavigate } from "react-router-dom"
+import { FaGithub, FaLinkedin, FaEnvelope, FaMap, FaHome, FaRocket, FaSearch, FaBookmark } from 'react-icons/fa'
+import Home from "./pages/Home";
+import Nav from "./components/Nav";
 import CountryDataPage from "./pages/CountryDataPage"
 import ErrorPage from "./pages/ErrorPage";
 import MapPage from "./pages/MapPage";
 
 function App() {
+  const navigate = useNavigate;
+  const location = useLocation;
+
   const iconLinks = [
     {
       id: 0, colorCode: ' #0077b5', iconName: FaHome,
@@ -20,10 +25,7 @@ function App() {
       id: 2, colorCode: '8cac5', iconName: FaRocket,
       name: 'Portfolio', pathName: ''
     },
-    // {
-    //   id: 3, colorCode: '8cac5', iconName: FaSearch,
-    //   name: 'search', pathName: ''
-    // },
+
     {
       id: 4, colorCode: 'black', iconName: FaGithub,
       name: 'Github', pathName: '/https://github.com/dopoku12'
@@ -36,46 +38,36 @@ function App() {
       id: 6, colorCode: '78cac5', iconName: FaEnvelope,
       name: 'Email', pathName: '/'
     }]
-  const navIcons = iconLinks.filter((i) => i.id <= 2)
 
-  function searchHandler() {
+  function sHandler() {
     console.log(window.location.href)
   }
+
+  function HomesHandler() {
+    navigate('/Country')
+  }
+
+
 
   return (
     <div className="App">
       <BrowserRouter>
-        <nav>
-          <ul className="header-nav-ul">
-            {
-              navIcons.map((i) =>
-                <li key={i.id} className={i.name} >
-                  <Link to={i.pathName}>
-                    <p>
-                      <i.iconName size={25} color={i.colorCode} />
-                      {i.name}
-                    </p>
-                  </Link>
-                </li>
-              )
-            }
-            <li className="input-group">
-              <input type="search" id="search-box" placeholder="Enter County Name" />
-              {
-                <FaSearch className="search-icon" onClick={searchHandler} />
-              }
-            </li>
-          </ul>
-        </nav>
+        {
 
+          <Nav RouterLinks={Link}
+            SearchIcon={FaSearch}
+            navIcons={iconLinks.filter((i) => i.id <= 2)}
+            searchHandler={sHandler}
+          />
+        }
         <Routes>
-          <Route path="/" element={<CountryDataPage />} />
+          <Route path="/" element={<Home SearchIcon={FaSearch} BookMark={FaBookmark} searchHandler={HomesHandler} />} />
+          <Route path="/County" element={<CountryDataPage footerIcons={iconLinks.filter((i) => i.id > 3)} />} />
           <Route path="/Map" element={<MapPage />} />
           <Route path="/https://davidopoku-portfolio.netlify.app" />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
-      <CountryDataPage footerIcons={iconLinks.filter((i) => i.id > 3)} />
     </div>
   );
 }

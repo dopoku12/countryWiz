@@ -1,3 +1,55 @@
+.landing-page {
+  height: 100vh;
+  background-image: url("/public/img/compassMap.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.landing-page .landing-page-form {
+  z-index: 10%;
+  width: 45%;
+  border-radius: 30px;
+  border: 1px solid white;
+  box-shadow: 15px 15px 20px 35px rgba(0, 0, 0, 0.634);
+}
+.landing-page .landing-page-form #search-box {
+  font-size: 1.5em;
+  width: 90%;
+  font-style: oblique;
+}
+
+form {
+  padding: 2px;
+  border-radius: 5px;
+  text-align: center;
+}
+form input[type=search] {
+  outline: none;
+  font-size: 1em;
+  font-weight: bolder;
+  padding: 7px 8px;
+  border: none;
+  background-color: transparent;
+  border-radius: inherit;
+  color: white;
+}
+form input[type=search]::placeholder {
+  color: white;
+}
+form button[type=submit] {
+  border: 1px solid transparent;
+  border-radius: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+
+.nav-form {
+  width: 50%;
+  border: 5px solid black;
+}
 * {
   padding: 0%;
   margin: 0%;
