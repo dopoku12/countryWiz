@@ -1,5 +1,4 @@
 const Home = ({ SearchIcon, searchHandler, BookMark }) => {
-
     return (
         <div className="landing-page">
             <form className="landing-page-form">

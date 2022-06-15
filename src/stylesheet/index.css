@@ -8,6 +8,13 @@
   justify-content: center;
   align-items: center;
 }
+.landing-page .header-nav {
+  z-index: 40%;
+}
+.landing-page .header-nav .header-nav-ul {
+  display: flex;
+  flex-direction: column;
+}
 .landing-page .landing-page-form {
   z-index: 10%;
   width: 45%;
@@ -50,6 +57,10 @@ form button[type=submit] {
   width: 50%;
   border: 5px solid black;
 }
+.nav-form #nav-search-box {
+  width: 70%;
+}
+
 * {
   padding: 0%;
   margin: 0%;
@@ -78,6 +89,7 @@ body {
 nav {
   background-color: aquamarine;
   height: 50%;
+  width: 60%;
 }
 nav .input-group {
   width: 50%;

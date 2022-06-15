@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Link, useLocation, useNavigate } from "react-router-dom"
-import { FaGithub, FaLinkedin, FaEnvelope, FaMap, FaHome, FaRocket, FaSearch, FaBookmark } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaEnvelope, FaMap, FaHome, FaRocket, FaSearch, FaBookmark, FaListUl } from 'react-icons/fa'
+import { useState } from "react";
 import Home from "./pages/Home";
 import Nav from "./components/Nav";
 import CountryDataPage from "./pages/CountryDataPage"
@@ -8,8 +9,10 @@ import ErrorPage from "./pages/ErrorPage";
 import MapPage from "./pages/MapPage";
 
 function App() {
+
+  const [status, setStatus] = useState(false)
   const navigate = useNavigate;
-  const location = useLocation;
+
 
   const iconLinks = [
     {
@@ -39,34 +42,51 @@ function App() {
       name: 'Email', pathName: '/'
     }]
 
-  function sHandler() {
-    console.log(window.location.href)
+  function menuHandler() {
+    const changeStatus = true
+
+    status === false ?
+      setStatus(changeStatus) :
+      setStatus(status)
   }
+  const windowPathName = window.location.pathname
 
   function HomesHandler() {
     navigate('/Country')
   }
 
 
-
   return (
     <div className="App">
       <BrowserRouter>
-        {
+        <nav className="header-nav">
+          <FaListUl onClick={menuHandler} />
+          {
+            status &&
+            <Nav RouterLinks={Link}
+              SearchIcon={FaSearch}
+              navIcons={iconLinks.filter((i) => i.id <= 2)}
+            />
+          }
+        </nav>
 
-          <Nav RouterLinks={Link}
-            SearchIcon={FaSearch}
-            navIcons={iconLinks.filter((i) => i.id <= 2)}
-            searchHandler={sHandler}
-          />
-        }
+
         <Routes>
-          <Route path="/" element={<Home SearchIcon={FaSearch} BookMark={FaBookmark} searchHandler={HomesHandler} />} />
-          <Route path="/County" element={<CountryDataPage footerIcons={iconLinks.filter((i) => i.id > 3)} />} />
+          <Route path="/" element={
+            <Home SearchIcon={FaSearch}
+              BookMark={FaBookmark}
+              searchHandler={HomesHandler} />
+          } />
+
+          <Route path="/County" element={
+            <CountryDataPage
+              footerIcons={iconLinks.filter((i) => i.id > 3)} />
+          } />
           <Route path="/Map" element={<MapPage />} />
           <Route path="/https://davidopoku-portfolio.netlify.app" />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
+
       </BrowserRouter>
     </div>
   );

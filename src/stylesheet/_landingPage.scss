@@ -8,6 +8,14 @@
   justify-content: center;
   align-items: center;
 
+  .header-nav {
+    z-index: 40%;
+    .header-nav-ul {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
   .landing-page-form {
     z-index: 10%;
     width: 45%;
