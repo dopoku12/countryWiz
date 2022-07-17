@@ -1,0 +1,24 @@
+@media only screen and (max-width: 426px) {
+  /*Big smartphones [426px -> 600px]*/
+
+  nav {
+    position: fixed;
+    background-color: inherit;
+    width: 35%;
+
+    .header-nav-ul {
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
+
+  .header-nav {
+    z-index: 40%;
+    margin: 0%;
+
+    .header-nav-ul {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

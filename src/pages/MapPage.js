@@ -3,8 +3,12 @@ import TomTom from "../components/TomTom"
 function MapPage() {
 
     return (
-        <div>
+        <div className="map">
             <main>
+                <h1>
+                    hello
+                </h1>
+
                 <TomTom />
             </main>
         </div>

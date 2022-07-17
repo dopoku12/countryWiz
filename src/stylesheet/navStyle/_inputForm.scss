@@ -17,7 +17,7 @@ form {
     color: rgb(255, 255, 255);
   }
 
-  button[type="submit"] {
+  button {
     border: 1px solid transparent;
     border-radius: inherit;
     background: transparent;
@@ -26,7 +26,7 @@ form {
 }
 
 .nav-form {
-  width: 50%;
+  width: 90%;
   border: 5px solid black;
 
   #nav-search-box {

@@ -1,14 +1,12 @@
-const Nav = ({ navIcons, searchHandler, RouterLinks, SearchIcon }) => {
-    return (
+import Form from "./Form"
+const Nav = ({ navIcons, searchHandler, RouterLinks, SearchIcon, BookMark }) => {
 
+    return (
         <ul className="header-nav-ul">
 
-            <form className="nav-form">
-                <input type="search" id="nav-search-box" placeholder="Enter County..." />
-                <button type="submit">
-                    <SearchIcon className="search-icon" />
-                </button>
-            </form>
+            <Form SearchIcon={SearchIcon} />
+            <BookMark size={25} color={'F47D2F'} />
+
 
             {
                 navIcons.map((i) =>

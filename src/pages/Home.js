@@ -1,14 +1,21 @@
-const Home = ({ SearchIcon, searchHandler, BookMark }) => {
+import Footer from "../components/Footer";
+import Form from "../components/Form";
+const Home = ({ SearchIcon, searchHandler, BookMark, footerIcons }) => {
     return (
+
         <div className="landing-page">
-            <form className="landing-page-form">
-                <button type="submit">
-                    <SearchIcon className="search-icon" color='F47D2F' size={15} />
-                </button>
-                <input type="search" id="search-box" placeholder="Enter Country..." />
-            </form>
+
+            <div className="left-background">
+                <main>
+
+                </main>
+            </div>
+
+            <Form SearchIcon={SearchIcon} BookMark={BookMark} />
             <BookMark size={25} color={'F47D2F'} />
+            <Footer footerIcons={footerIcons} />
         </div>
+
     );
 }
 

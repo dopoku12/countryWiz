@@ -1,3 +1,7 @@
+.map {
+  background-color: #820000;
+}
+
 .landing-page {
   height: 100vh;
   background-image: url("/public/img/compassMap.jpg");
@@ -7,13 +11,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.landing-page .header-nav {
-  z-index: 40%;
-}
-.landing-page .header-nav .header-nav-ul {
-  display: flex;
-  flex-direction: column;
 }
 .landing-page .landing-page-form {
   z-index: 10%;
@@ -54,11 +51,30 @@ form button[type=submit] {
 }
 
 .nav-form {
-  width: 50%;
+  width: 90%;
   border: 5px solid black;
 }
 .nav-form #nav-search-box {
   width: 70%;
+}
+
+nav {
+  position: fixed;
+  background-color: inherit;
+  width: 35%;
+}
+nav .header-nav-ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.header-nav {
+  z-index: 40%;
+  margin: 0%;
+}
+.header-nav .header-nav-ul {
+  display: flex;
+  flex-direction: column;
 }
 
 * {
@@ -84,23 +100,6 @@ body {
   background-color: blanchedalmond;
   height: 100vh;
   width: 40%;
-}
-
-nav {
-  background-color: aquamarine;
-  height: 50%;
-  width: 60%;
-}
-nav .input-group {
-  width: 50%;
-}
-nav .input-group #search-box {
-  width: 80%;
-  border-radius: 5%;
-}
-nav .header-nav-ul {
-  display: flex;
-  justify-content: space-evenly;
 }
 
 /*# sourceMappingURL=index.css.map */
