@@ -1,21 +1,22 @@
 import { useEffect } from "react";
 
-const FetchApi = ({ value }) => {
-    console.log(value);
+const useFetchApi = ({ name, status }) => {
+    console.log(name);
     useEffect(() => {
-        fetch(`https://restcountries.com/v3.1/name/${value}`)
+        fetch(`https://restcountries.com/v3.1/name/${name}`)
             .then((res) => {
                 return res.json()
-            }).then((json) => {
-                console.log('json Data:', json)
+            }).then((jsonData) => {
+                console.log('json Data:', jsonData)
+                const data = jsonData
             })
 
 
 
-    }, [])
+    }, [status])
 
 
 
 }
 
-export default FetchApi;
+export default useFetchApi;

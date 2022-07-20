@@ -1,24 +1,20 @@
-@media only screen and (max-width: 426px) {
-  /*Big smartphones [426px -> 600px]*/
+nav {
+  position: fixed;
+  background-color: inherit;
+  width: 35%;
 
-  nav {
-    position: fixed;
-    background-color: inherit;
-    width: 35%;
-
-    .header-nav-ul {
-      display: flex;
-      justify-content: space-evenly;
-    }
-  }
-
-  .header-nav {
+  .header-nav-ul {
     z-index: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
     margin: 0%;
+  }
+}
 
-    .header-nav-ul {
-      display: flex;
-      flex-direction: column;
-    }
+@media all and (min-width: 600px) {
+  /*Big smartphones [426px -> 600px]*/
+  nav {
+    display: none;
   }
 }

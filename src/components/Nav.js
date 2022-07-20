@@ -2,26 +2,28 @@ import Form from "./Form"
 const Nav = ({ navIcons, searchHandler, RouterLinks, SearchIcon, BookMark }) => {
 
     return (
-        <ul className="header-nav-ul">
+        <nav className="header-nav">
+            <ul className="header-nav-ul">
 
-            <Form SearchIcon={SearchIcon} />
-            <BookMark size={25} color={'F47D2F'} />
+                <Form SearchIcon={SearchIcon} />
+                <BookMark size={25} color={'F47D2F'} />
 
 
-            {
-                navIcons.map((i) =>
-                    <li key={i.id} className={i.name} >
-                        <RouterLinks to={i.pathName}>
-                            <p>
-                                <i.iconName size={25} color={i.colorCode} />
-                                {i.name}
-                            </p>
-                        </RouterLinks>
-                    </li>
-                )
-            }
-        </ul>
+                {
+                    navIcons.map((i) =>
+                        <li key={i.id} className={i.name} >
+                            <RouterLinks to={i.pathName}>
+                                <label>
+                                    <i.iconName size={25} color={i.colorCode} />
+                                    {i.name}
+                                </label>
+                            </RouterLinks>
+                        </li>
+                    )
+                }
+            </ul>
 
+        </nav>
     );
 }
 

@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Nav from "./components/Nav";
 import ErrorPage from "./pages/ErrorPage";
 import MapPage from "./pages/MapPage";
+import Value from "./pages/Value";
 
 function App() {
 
@@ -75,6 +76,7 @@ function App() {
           } />
 
           <Route path="/Map" element={<MapPage />} />
+          <Route path={""} element={<Value />} />
           <Route path="/https://davidopoku-portfolio.netlify.app" />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
