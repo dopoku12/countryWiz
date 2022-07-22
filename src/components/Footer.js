@@ -1,6 +1,5 @@
 
 function Footer({ footerIcons }) {
-    console.log('footerIcons:', footerIcons);
     return (
 
 

@@ -1,21 +1,34 @@
-import { useEffect } from "react";
-import useFetchApi from "../api-components/FetchApi";
+import { useEffect, useState } from "react";
+import useFetchApi from "../customHooks/FetchApi";
 const Form = ({ SearchIcon, clickHandler }) => {
-    const [name, setName] = useEffect('')
-    const [status, setStatus] = useEffect(false)
+    const [name, setName] = useState('');
+    const [status, setStatus] = useState(false)
+    const url = `https://restcountries.com/v3/name/${name}`
 
 
-    console.log('status:', status);
-    useFetchApi(name, status)
-    console.log('name:', name.current);
+    function handleSubmit(e) {
+        e.preventDefault()
+        !status ?
+            setStatus(true) :
+            setStatus(false)
+
+        console.log('name:', name);
+    }
+    useFetchApi(url, status)
+
     return (
-        <form className="landing-page-form">
-            <button type="button">
-                <SearchIcon className="search-icon" color='F47D2F' size={15} />
+        <form className="landing-page-form" onSubmit={handleSubmit}>
+            <button>
+                <SearchIcon
+                    type="submit"
+                    className="search-icon"
+                    color='F47D2F'
+                    size={15}
+                />
             </button>
 
             <input type="search" id="search-box"
-                placeholder="Enter Country..."
+                placeholder=''
                 value={name}
                 onChange={
                     (e) =>
