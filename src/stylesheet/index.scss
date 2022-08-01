@@ -1,80 +1,10 @@
-.landing-page {
-  height: 100vh;
-  background-image: url("/public/img/compassMap.jpg");
-  background-position: center;
-  background-size: cover;
-  display: grid;
-  grid-template-columns: 5fr 5fr;
-  justify-content: center;
-  align-items: center;
-}
-
-.landing-page .landing-page-form {
-  z-index: 10%;
-  width: 45%;
-  border-radius: 30px;
-  border: 1px solid white;
-  box-shadow: 15px 15px 20px 35px rgba(0, 0, 0, 0.634);
-}
-
-.landing-page .landing-page-form #search-box {
-  font-size: 1.5em;
-  width: 90%;
-  font-style: oblique;
-}
-
-.map {
-  background-color: #820000;
-}
-
-form {
-  padding: 2px;
-  border-radius: 5px;
-  text-align: center;
-}
-
-form input[type=search] {
-  outline: none;
-  font-size: 1em;
-  font-weight: bolder;
-  padding: 7px 8px;
-  border: none;
-  background-color: transparent;
-  border-radius: inherit;
-  color: white;
-}
-
-form input[type=search]::placeholder {
-  color: white;
-}
-
-form button {
-  border: 1px solid transparent;
-  border-radius: inherit;
-  background: transparent;
-  cursor: pointer;
-}
-
-.nav-form {
-  width: 90%;
-  border: 5px solid black;
-}
-
-.nav-form #nav-search-box {
-  width: 70%;
-}
-
-nav {
-  position: fixed;
-  background-color: inherit;
-  width: 35%;
-}
-
-nav .header-nav-ul {
-  z-index: 40%;
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: column;
+@use "./pagesStyle/home.scss";
+@use "./pagesStyle/mapPage";
+@use "./pagesStyle/info";
+@use "./navStyle/inputForm";
+@use "./navStyle/menu";
+* {
+  padding: 0%;
   margin: 0%;
 }
 
@@ -84,27 +14,3 @@ nav .header-nav-ul {
     display: none;
   }
 }
-* {
-  padding: 0%;
-  margin: 0%;
-}
-
-li {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-.left-background {
-  position: fixed;
-  background-position: left;
-  background-color: blanchedalmond;
-  height: 10vh;
-  width: 40%;
-}
-
-/*# sourceMappingURL=index.css.map */
-
-/*# sourceMappingURL=index.scss.map */

@@ -6,10 +6,8 @@ import Home from "./pages/Home";
 import Nav from "./components/Nav";
 import ErrorPage from "./pages/ErrorPage";
 import MapPage from "./pages/MapPage";
-import Value from "./pages/Value";
 
 function App() {
-
   const [status, setStatus] = useState(false)
 
   const iconLinks = [
@@ -42,14 +40,11 @@ function App() {
 
   function menuHandler() {
     const changeStatus = true
-
     status === false ?
       setStatus(changeStatus) :
       setStatus(status)
   }
   const windowPathName = window.location.pathname
-
-
 
   return (
     <div className="App">
@@ -66,7 +61,6 @@ function App() {
           }
         </nav>
 
-
         <Routes>
           <Route path="/" element={
             <Home SearchIcon={FaSearch}
@@ -76,7 +70,6 @@ function App() {
           } />
 
           <Route path="/Map" element={<MapPage />} />
-          <Route path={""} element={<Value />} />
           <Route path="/https://davidopoku-portfolio.netlify.app" />
           <Route path="*" element={<ErrorPage />} />
         </Routes>

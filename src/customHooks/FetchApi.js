@@ -1,33 +1,30 @@
 import { useEffect, useState } from "react";
-
-const useFetchApi = (url, status) => {
-
+const useFetchApi = (name, submit) => {
+    const [data, setData] = useState(null)
+    const [pending, setPending] = useState(true)
+    const [errorHandler, setErrorHandler] = useState(null)
+    const save = localStorage.setItem('countryData', data)
     useEffect(
         () => {
-            fetch(url)
-                .then((res) => {
-                    console.log('api:', res)
+            fetch(`https://restcountries.com/v3/name/${name}`)
+                .then(res => {
                     if (!res.ok) {
-                        throw Error('Something went wrong please enter country Name')
+                        throw Error('Enter Country Name')
                     }
-                    // else if () {
-
-                    // }
-                    console.log('res.json:', res.json());
-                    console.log('resTest:', res);
-                    const data = res.json()
-                    return data
+                    return res.json()
+                })
+                .then(jsonData => {
+                    setData(jsonData)
+                    setPending(false)
                 })
                 .catch(err => {
-                    console.error(err.message)
-
+                    setErrorHandler(err.message)
                 })
+        }, [submit]);
 
-        }, [status])
+    console.log('setData:', data);
 
-
-
-    // return { data, err }
+    return { data, errorHandler, pending, save }
 }
 
 export default useFetchApi;
