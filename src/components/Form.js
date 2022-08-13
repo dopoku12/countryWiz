@@ -1,18 +1,19 @@
-import { useEffect, useState } from "react";
-import useFetchApi from "../customHooks/FetchApi";
+import { useState } from "react";
+import useFetchApi from "../customHooks/usefetchapi";
 const Form = ({ SearchIcon }) => {
     const [name, setName] = useState('');
-    const [submit, setSubmit] = useState(null)
+    const [submit, setSubmit] = useState(null);
+
+    const url = `https://restcountries.com/v3/name/${name}`;
 
     function handleSubmit(e) {
         e.preventDefault()
         !submit ?
             setSubmit(true) :
             setSubmit(false)
-    }
+    };
 
-    useFetchApi(name, submit)
-
+    useFetchApi(url, submit);
     return (
         <form className="landing-page-form" onSubmit={handleSubmit}>
             <button>
