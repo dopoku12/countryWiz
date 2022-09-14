@@ -27,6 +27,13 @@
 
 .right-background {
   background-color: #935a15;
+  width: 30%;
+  height: 60vh;
+}
+
+.flag-img {
+  height: 25vh;
+  width: 20vw;
 }
 
 form {
