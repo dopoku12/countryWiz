@@ -1,10 +1,8 @@
 import { useState } from "react";
 import useFetchApi from "../utils/usefetchapi";
-
 const Form = ({ SearchIcon }) => {
     const [name, setName] = useState('')
     const [submit, setSubmit] = useState(null);
-
     useFetchApi(name, submit)
     function handleSubmit(e) {
         e.preventDefault()
@@ -23,7 +21,6 @@ const Form = ({ SearchIcon }) => {
                         size={15}
                     />
                 </button>
-
                 <input type="search" id="search-box"
                     placeholder=''
                     value={name}

@@ -1,21 +1,27 @@
 import axios from "axios";
-import { useEffect, useState, } from "react";
+import { useState, } from "react";
 import useDebounce from "./usedebounce";
 const useFetchApi = (name, submit) => {
     const [data, setData] = useState([]);
     const [pending, setPending] = useState(true);
     const [error, setErrorHandler] = useState(null);
-    let count = 0
     let { debounceValue } = useDebounce(name)
-    console.log('debounceValue:', debounceValue, count++);
-    useEffect(() => {
-        const fetchApi = async () => {
+    const initialize = (data) => {
+        setPending(false);
+        setData(data);
+    }
+    const userInput = ((debounceValue) => {
+        let value = debounceValue
+        let url = `https://restcountries.com/v3.1/name`
+        return async () => {
             try {
-                const res = await axios.get(`https://restcountries.com/v2/name/ghana`)
-                if (res && res.data) {
-                    setPending(false)
-                    setData(res.data)
-                }
+                const res = await axios.get(
+                    // !value ? 
+                    //`https://restcountries.com/v3.1/name/usa`:
+                    url + '/' + value
+                )
+                if (res && res.data)
+                    initialize(res.data)
             }
             catch (err) {
                 if (err.res) {
@@ -29,10 +35,10 @@ const useFetchApi = (name, submit) => {
                 }
             }
         }
-        fetchApi()
-    }, [debounceValue]
-    );
+    })(debounceValue)
 
+    userInput()
+    console.log('fetchData:', data);
     return { data, error, pending };
 }
 export default useFetchApi;
