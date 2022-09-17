@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useDebounce } from './hooks/useThrottle';
+import { useDebounce } from './hooks/useDebounce';
 // import { BrowserRouter, Routes, Route, Link, } from "react-router-dom"
 // import { FaGithub, FaLinkedin, FaEnvelope, FaMap, FaHome, FaRocket, FaSearch, FaBookmark, FaListUl } from 'react-icons/fa'
 // import { useState } from "react";
