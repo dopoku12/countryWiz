@@ -1,6 +1,6 @@
 import Footer from "../components/Footer";
 import Form from "../components/Form";
-import useFetchApi from "../utils/usefetchapi";
+import useFetchApi from "../hooks/usefetchapi";
 const Home = ({ SearchIcon, searchHandler, BookMark, footerIcons }) => {
     const { data, error, pending } = useFetchApi()
     console.log('home:', data);

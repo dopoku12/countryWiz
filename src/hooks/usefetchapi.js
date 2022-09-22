@@ -1,27 +1,24 @@
 import axios from "axios";
 import { useState, } from "react";
-import useDebounce from "./usedebounce";
-const useFetchApi = (name, submit) => {
+
+const useFetchApi = (debounceValue, submit) => {
     const [data, setData] = useState([]);
     const [pending, setPending] = useState(true);
     const [error, setErrorHandler] = useState(null);
-    let { debounceValue } = useDebounce(name)
-    const initialize = (data) => {
-        setPending(false);
-        setData(data);
-    }
-    const userInput = ((debounceValue) => {
-        let value = debounceValue
+
+    const countryApi = ((value) => {
+        let usrInput = value
         let url = `https://restcountries.com/v3.1/name`
         return async () => {
             try {
                 const res = await axios.get(
                     // !value ? 
                     //`https://restcountries.com/v3.1/name/usa`:
-                    url + '/' + value
+                    url + '/' + usrInput
                 )
                 if (res && res.data)
-                    initialize(res.data)
+                    setPending(false);
+                setData(res.data);
             }
             catch (err) {
                 if (err.res) {
@@ -36,9 +33,8 @@ const useFetchApi = (name, submit) => {
             }
         }
     })(debounceValue)
-
-    userInput()
-    console.log('fetchData:', data);
+    countryApi()
+    console.log("data:", data);
     return { data, error, pending };
 }
 export default useFetchApi;
