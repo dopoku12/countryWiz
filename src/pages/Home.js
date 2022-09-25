@@ -19,9 +19,14 @@ const Home = ({ SearchIcon, searchHandler, BookMark, footerIcons }) => {
                     }
                     {
                         data.map(i =>
-                            <div key={i.flag}>
+                            <div key={i.area}>
                                 <div>
+                                    {console.log('flag', i.flags.svg)}
+                                    {console.log('arms', i.coatOfArms.svg)}
 
+                                    <img className="arms-img" src={i.coatOfArms.svg} alt=""
+                                        style={{ height: 60 }}
+                                    />
                                     <img className="flag-img" src={i.flags.svg} alt="" />
                                 </div>
                             </div>

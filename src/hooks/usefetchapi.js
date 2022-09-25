@@ -5,20 +5,17 @@ const useFetchApi = (debounceValue, submit) => {
     const [data, setData] = useState([]);
     const [pending, setPending] = useState(true);
     const [error, setErrorHandler] = useState(null);
-    const { usrLocation } = useGeoLocation()
-    console.log(usrLocation);
+    const { usrCountry } = useGeoLocation()
 
+    console.log('val:', debounceValue);
+    console.log(usrCountry);
     useEffect(() => {
-        const countryApi = ((value) => {
-            let usrInput = value
+        const countryApi = (() => {
+            let input = debounceValue ? debounceValue : usrCountry
             let urlName = `https://restcountries.com/v3.1/name`
             return async () => {
                 try {
-                    const res = await axios.get(
-                        // !value ?
-                        //     `https://restcountries.com/v3.1/name/usa` :
-                        urlName + '/' + usrInput
-                    )
+                    const res = await axios.get(urlName + '/' + input)
                     if (res && res.data)
                         setPending(false);
                     setData(res.data);
@@ -35,10 +32,10 @@ const useFetchApi = (debounceValue, submit) => {
                     }
                 }
             }
-        })(debounceValue)
+        })()
         countryApi()
     }
-        , [debounceValue])
+        , [debounceValue, usrCountry])
 
     console.log("data:", data);
     return { data, error, pending };
