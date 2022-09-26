@@ -2,7 +2,6 @@ import { useState } from "react";
 import Footer from "../components/Footer";
 import useDebounce from "../hooks/usedebounce";
 import useFetchApi from "../hooks/usefetchapi";
-
 const Home = ({ SearchIcon, searchHandler, BookMark, footerIcons }) => {
     const [name, setName] = useState('');
     const [submit, setSubmit] = useState(null);

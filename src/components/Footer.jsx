@@ -1,9 +1,6 @@
 
 function Footer({ footerIcons }) {
     return (
-
-
-
         <ul className='footer-nav-ul'>
             {
                 footerIcons.map((i) =>
