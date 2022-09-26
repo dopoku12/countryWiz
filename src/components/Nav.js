@@ -1,14 +1,9 @@
-import Form from "./Form"
-const Nav = ({ navIcons, searchHandler, RouterLinks, SearchIcon, BookMark }) => {
 
+const Nav = ({ navIcons, searchHandler, RouterLinks, SearchIcon, BookMark }) => {
     return (
         <nav className="header-nav">
             <ul className="header-nav-ul">
-
-                <Form SearchIcon={SearchIcon} />
                 <BookMark size={25} color={'F47D2F'} />
-
-
                 {
                     navIcons.map((i) =>
                         <li key={i.id} className={i.name} >

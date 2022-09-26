@@ -1,13 +1,42 @@
+import { useState } from "react";
 import Footer from "../components/Footer";
-import Form from "../components/Form";
+import useDebounce from "../hooks/usedebounce";
 import useFetchApi from "../hooks/usefetchapi";
+
 const Home = ({ SearchIcon, searchHandler, BookMark, footerIcons }) => {
-    const { data, error, pending } = useFetchApi()
+    const [name, setName] = useState('');
+    const [submit, setSubmit] = useState(null);
+    let { debounceValue } = useDebounce(name)
+    const { data, error, pending } = useFetchApi(debounceValue)
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        // !submit ?
+        //     setSubmit(true) :
+        //     setSubmit(false);
+    };
+
     console.log('home:', data);
     return (
         <div className="landing-page">
             <div >
-                <Form SearchIcon={SearchIcon} />
+                <form className="landing-page-form" onSubmit={handleSubmit}>
+                    <button>
+                        <SearchIcon
+                            type="submit"
+                            className="search-icon"
+                            color='F47D2F'
+                            size={15}
+                        />
+                    </button>
+                    <input type="search" id="search-box"
+                        placeholder=''
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                </form>
+
+
                 <button >
                     <BookMark size={25} color={'F47D2F'} />
                 </button>
@@ -21,9 +50,6 @@ const Home = ({ SearchIcon, searchHandler, BookMark, footerIcons }) => {
                         data.map(i =>
                             <div key={i.area}>
                                 <div>
-                                    {console.log('flag', i.flags.svg)}
-                                    {console.log('arms', i.coatOfArms.svg)}
-
                                     <img className="arms-img" src={i.coatOfArms.svg} alt=""
                                         style={{ height: 60 }}
                                     />
@@ -40,7 +66,6 @@ const Home = ({ SearchIcon, searchHandler, BookMark, footerIcons }) => {
             </footer>
 
         </div>
-
     );
 }
 

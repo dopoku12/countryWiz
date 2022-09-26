@@ -29,9 +29,8 @@ const useGeoLocation = () => {
                 })(lat, lng)
 
             },
-            (error) => console.log('error2:', error))
+            (error) => console.log('error2:'))
     }, [])
-
     return { usrCountry }
 }
 
