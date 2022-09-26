@@ -12,7 +12,6 @@ const useFetchApi = (debounceValue) => {
             let input = value
             let urlName = `https://restcountries.com/v3.1/name`
             const url = urlName + '/' + input
-            console.log(url);
 
             return async () => {
                 try {
@@ -30,10 +29,11 @@ const useFetchApi = (debounceValue) => {
                     }
                     else {
                         console.log(`Error: ${err.message}`);
-                        setErrorHandler(err.message)
+                        setErrorHandler(err.message);
                     }
                 }
             }
+
         })(debounceValue ? debounceValue : usrCountry)
         countryApi()
 
