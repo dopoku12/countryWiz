@@ -17,7 +17,7 @@ const useGeoLocation = () => {
                         try {
                             const res = await axios.get(url)
                             if (res.data)
-                                setUsrCountry(res.data.addresses[0].address.country);
+                                setUsrCountry(res.data.addresses[0].address.countryCodeISO3);
                         }
 
                         catch (err) {
@@ -34,12 +34,4 @@ const useGeoLocation = () => {
     }, [])
     return { usrCountry }
 }
-
-
-
-
-
-
-
-
 export default useGeoLocation;

@@ -1,21 +1,43 @@
-.landing-page {
-  height: 100vh;
+.content {
+  list-style: none;
+  padding: 20px;
+  display: grid;
+  align-items: center;
+  grid-gap: 30%;
+  grid-template-columns: repeat(2, auto);
+}
+
+.left {
+  background-color: #935a15;
+  width: 40vw;
+  height: 60vh;
+}
+
+.right {
+  background-color: #935a15;
+  width: 60vw;
+  height: 60vh;
+}
+.right .flag-img {
+  height: 25vh;
+  width: 20vw;
+}
+
+.home {
+  height: 150vh;
   background-image: url("/public/img/compassMap.jpg");
   background-position: center;
   background-size: cover;
-  display: grid;
-  grid-template-columns: 5fr 5fr;
-  justify-content: center;
-  align-items: center;
 }
-.landing-page .landing-page-form {
+.home .landing-page-form {
   z-index: 10%;
-  width: 45%;
+  width: 56%;
+  height: 5%;
   border-radius: 30px;
   border: 1px solid white;
   box-shadow: 15px 15px 20px 35px rgba(0, 0, 0, 0.634);
 }
-.landing-page .landing-page-form #search-box {
+.home .landing-page-form #search-box {
   font-size: 1.5em;
   width: 90%;
   font-style: oblique;
@@ -23,17 +45,6 @@
 
 .map {
   background-color: #820000;
-}
-
-.right-background {
-  background-color: #935a15;
-  width: 30%;
-  height: 60vh;
-}
-
-.flag-img {
-  height: 25vh;
-  width: 20vw;
 }
 
 form {

@@ -1,0 +1,26 @@
+.content {
+  list-style: none;
+  padding: 20px;
+  display: grid;
+  align-items: center;
+  grid-gap: 30%;
+  grid-template-columns: repeat(2, auto);
+}
+
+.left {
+  background-color: rgb(147, 90, 21);
+
+  width: 40vw;
+  height: 60vh;
+}
+
+.right {
+  background-color: rgb(147, 90, 21);
+
+  width: 60vw;
+  height: 60vh;
+  .flag-img {
+    height: 25vh;
+    width: 20vw;
+  }
+}

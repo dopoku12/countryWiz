@@ -7,12 +7,12 @@ const useFetchApi = (debounceValue) => {
     const [error, setErrorHandler] = useState(null);
     const { usrCountry } = useGeoLocation();
 
+    let urlName = `https://restcountries.com/v3.1/name` + '/' + debounceValue
+    const isoName = `https://restcountries.com/v3.1/alpha` + '/' + usrCountry
+
     useEffect(() => {
         const countryApi = ((value) => {
-            let input = value
-            let urlName = `https://restcountries.com/v3.1/name`
-            const url = urlName + '/' + input
-
+            let url = value
             return async () => {
                 try {
                     const res = await axios.get(url)
@@ -34,7 +34,7 @@ const useFetchApi = (debounceValue) => {
                 }
             }
 
-        })(debounceValue ? debounceValue : usrCountry)
+        })(debounceValue ? urlName : isoName)
         countryApi()
 
     }, [debounceValue, usrCountry])

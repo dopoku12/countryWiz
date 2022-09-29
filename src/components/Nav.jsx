@@ -4,20 +4,17 @@ const Nav = ({ navIcons, searchHandler, RouterLinks, SearchIcon, BookMark }) => 
         <nav className="header-nav">
             <ul className="header-nav-ul">
                 <BookMark size={25} color={'F47D2F'} />
-                {
-                    navIcons.map((i) =>
-                        <li key={i.id} className={i.name} >
-                            <RouterLinks to={i.pathName}>
-                                <label>
-                                    <i.iconName size={25} color={i.colorCode} />
-                                    {i.name}
-                                </label>
-                            </RouterLinks>
-                        </li>
-                    )
-                }
+                {navIcons.map((i) =>
+                    <li key={i.id} className={i.name} >
+                        <RouterLinks to={i.pathName}>
+                            <label>
+                                <i.iconName size={25} color={i.colorCode} />
+                                {i.name}
+                            </label>
+                        </RouterLinks>
+                    </li>
+                )}
             </ul>
-
         </nav>
     );
 }

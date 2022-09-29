@@ -6,7 +6,6 @@ import Home from "./pages/Home";
 import Nav from "./components/Nav";
 import ErrorPage from "./pages/ErrorPage";
 import MapPage from "./pages/MapPage";
-
 function App() {
   const [status, setStatus] = useState(false)
 
