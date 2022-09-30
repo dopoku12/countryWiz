@@ -8,6 +8,10 @@
   margin: 0%;
 }
 
+ul {
+  list-style: none;
+}
+
 @media all and (min-width: 600px) {
   /*Big smartphones [426px -> 600px]*/
   nav {

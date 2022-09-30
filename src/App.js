@@ -5,10 +5,9 @@ import { useState } from "react";
 import Home from "./pages/Home";
 import Nav from "./components/Nav";
 import ErrorPage from "./pages/ErrorPage";
-import MapPage from "./pages/MapPage";
+import LandingPage from "./pages/LandingPage";
 function App() {
   const [status, setStatus] = useState(false)
-
   const iconLinks = [
     {
       id: 0, colorCode: ' #0077b5', iconName: FaHome,
@@ -48,18 +47,18 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <nav className="header-nav">
-          <FaListUl size={25} color='F47D2F' onClick={menuHandler} />
-          {
-            status &&
-            <Nav RouterLinks={Link}
-              SearchIcon={FaSearch}
-              BookMark={FaBookmark}
-              navIcons={iconLinks.filter((i) => i.id <= 2)}
-            />
-          }
-        </nav>
-
+        {
+          // <nav className="header-nav">
+          //   <FaListUl size={25} color='F47D2F' onClick={menuHandler} />
+          //     status &&
+          //     <Nav RouterLinks={Link}
+          //       SearchIcon={FaSearch}
+          //       BookMark={FaBookmark}
+          //       navIcons={iconLinks.filter((i) => i.id <= 2)}
+          //     />
+          //   }
+          // </nav>
+        }
         <Routes>
           <Route path="/" element={
             <Home SearchIcon={FaSearch}
@@ -68,7 +67,10 @@ function App() {
             />
           } />
 
-          <Route path="/Map" element={<MapPage />} />
+          <Route path="/LandingPage" element={<LandingPage
+
+
+          />} />
           <Route path="/https://davidopoku-portfolio.netlify.app" />
           <Route path="*" element={<ErrorPage />} />
         </Routes>

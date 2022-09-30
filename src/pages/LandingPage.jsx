@@ -1,6 +1,6 @@
 import TomTom from "../components/TomTom"
 
-function MapPage() {
+function LandingPage() {
 
     return (
         <div className="map">
@@ -15,4 +15,4 @@ function MapPage() {
     )
 }
 
-export default MapPage
+export default LandingPage

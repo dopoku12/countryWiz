@@ -1,5 +1,4 @@
 .content {
-  list-style: none;
   padding: 20px;
   display: grid;
   align-items: center;
@@ -7,20 +6,40 @@
   grid-template-columns: repeat(2, auto);
 }
 
-.left {
-  background-color: #935a15;
+.right {
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.567) 5px 5px 5px 5px;
+  border-color: white;
+  text-decoration: none;
   width: 40vw;
   height: 60vh;
 }
 
-.right {
-  background-color: #935a15;
-  width: 60vw;
-  height: 60vh;
+.left {
+  width: 100%;
+  color: white;
+  font-size: 0.8em;
 }
-.right .flag-img {
-  height: 25vh;
-  width: 20vw;
+.left .country-imgs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: inherit;
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.567) 5px 5px 5px 5px;
+  border-color: white;
+}
+.left .country-imgs .li-imgs {
+  width: inherit;
+}
+.left .arms-img {
+  height: 15vh;
+  width: 10vw;
+}
+.left .flag-img {
+  height: 54vh;
+  width: inherit;
 }
 
 .home {
@@ -102,6 +121,10 @@ nav .header-nav-ul {
 * {
   padding: 0%;
   margin: 0%;
+}
+
+ul {
+  list-style: none;
 }
 
 @media all and (min-width: 600px) {
