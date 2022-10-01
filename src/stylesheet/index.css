@@ -7,7 +7,7 @@
 }
 
 .right {
-  background-color: transparent;
+  background-color: red;
   box-shadow: rgba(0, 0, 0, 0.567) 5px 5px 5px 5px;
   border-color: white;
   text-decoration: none;
@@ -17,12 +17,16 @@
 
 .left {
   width: 100%;
+  background-color: red;
   color: white;
   font-size: 0.8em;
 }
 .left .country-imgs {
-  display: flex;
-  flex-direction: row;
+  width: 30vw;
+}
+.left .country-imgs .li-imgs {
+  width: inherit;
+  margin: 20%;
   align-items: center;
   justify-content: center;
   width: inherit;
@@ -30,21 +34,15 @@
   box-shadow: rgba(0, 0, 0, 0.567) 5px 5px 5px 5px;
   border-color: white;
 }
-.left .country-imgs .li-imgs {
-  width: inherit;
-}
 .left .arms-img {
   height: 15vh;
   width: 10vw;
 }
 .left .flag-img {
-  height: 54vh;
   width: inherit;
 }
 
 .home {
-  height: 150vh;
-  background-image: url("/public/img/compassMap.jpg");
   background-position: center;
   background-size: cover;
 }

@@ -7,7 +7,7 @@
 }
 
 .right {
-  background-color: transparent;
+  background-color: red;
   box-shadow: rgba(0, 0, 0, 0.567) 5px 5px 5px 5px;
   border-color: white;
   text-decoration: none;
@@ -17,25 +17,25 @@
 
 .left {
   width: 100%;
+  background-color: red;
   .country-imgs {
+    width: 30vw;
     .li-imgs {
       width: inherit;
+      margin: 20%;
+      align-items: center;
+      justify-content: center;
+      width: inherit;
+      background-color: transparent;
+      box-shadow: rgba(0, 0, 0, 0.567) 5px 5px 5px 5px;
+      border-color: white;
     }
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: inherit;
-    background-color: transparent;
-    box-shadow: rgba(0, 0, 0, 0.567) 5px 5px 5px 5px;
-    border-color: white;
   }
   .arms-img {
     height: 15vh;
     width: 10vw;
   }
   .flag-img {
-    height: 54vh;
     width: inherit;
   }
   color: white;

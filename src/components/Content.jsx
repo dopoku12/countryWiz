@@ -7,49 +7,54 @@ const Content = ({ data, pending }) => {
             }
 
             <aside className="left">
-                <ul className="country-imgs">
-                    {data.map(i => (
-                        <li className="li-imgs" key={i.area}>
-                            <img className="flag-img" src={i.flags.svg} alt="" />
+                {data.map(i => (
+
+                    <ul className="country-imgs" key={i.area}>
+
+                        <li className="li-imgs" >
+                            <img className="flag-img" src={i.flags.svg} alt="flags" />
                             <h1>{i.name.official} / {i.cca3}</h1>
-                            <img className="arms-img" src={i.coatOfArms.svg} alt="" />
                         </li>
-                    ))
-                    }
-                </ul>
+
+                        <li className="li-imgs">
+                            <img className="arms-img" src={i.coatOfArms.svg} alt="coatOfArms" />
+                        </li>
+                    </ul>
+
+                ))
+                }
             </aside>
             <aside className="right">
                 <ul className="country-info">
                     {
                         data.map(i => {
-
                             let name = Object.values(i.name.nativeName);
                             let nativeName = Object.values(name.map(i => i.common));
                             let cur = Object.values(i.currencies)
+                            console.log('cur', cur);
 
                             return (
-                                <ul key={i.area}>
+                                <ul className="" key={i.area}>
                                     <h1>
-                                        nativeName:  {nativeName}
+                                        nativeName: {nativeName}
                                     </h1>
 
 
                                     <li>
-                                        {i.capital[0]}
+                                        capital: {i.capital[0]}
                                     </li>
 
                                     <li>
-                                        {
+                                        languages:     {
                                             Object.values(i.languages)
                                         }
                                     </li>
                                     <li>
-                                        drive side:    {i.car.side}
+                                        drive side: {i.car.side}
                                     </li>
 
                                     <li>
-                                        {cur.name}
-                                        {cur.symbol}
+                                        currencies:{cur[0].name}{cur[0].symbol}
                                     </li>
 
                                     <li>
