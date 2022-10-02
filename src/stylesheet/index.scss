@@ -1,6 +1,5 @@
 @use "./pagesStyle/home.scss";
 @use "./pagesStyle/mapPage";
-
 @use "./navStyle/inputForm";
 @use "./navStyle/menu";
 * {
@@ -8,8 +7,12 @@
   margin: 0%;
 }
 
-ul {
-  list-style: none;
+.App {
+  overflow-x: hidden;
+
+  ul {
+    list-style: none;
+  }
 }
 
 @media all and (min-width: 600px) {
