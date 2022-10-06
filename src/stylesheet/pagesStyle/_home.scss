@@ -1,23 +1,37 @@
 @use "../styleComp/info.scss";
 
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 .home {
-  height: 120vh;
-  width: 100vw;
-  background-image: url("/public/img/compassMap.jpg");
-  background-position: center;
-  background-size: cover;
-
+  backdrop-filter: blur(0.8px);
   .landing-page-form {
     z-index: 10%;
-    width: 56%;
+    width: 90vw;
     height: 5%;
     border-radius: 30px;
     border: 1px solid white;
     box-shadow: 15px 15px 20px 35px rgba(0, 0, 0, 0.634);
     #search-box {
       font-size: 1.5em;
+      color: black;
       width: 90%;
       font-style: oblique;
     }
   }
+}
+.home-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.banner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 5%;
 }

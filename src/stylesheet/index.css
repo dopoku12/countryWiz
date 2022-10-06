@@ -7,29 +7,38 @@
   grid-template-columns: repeat(2, auto);
 }
 
+.dashboard {
+  background-color: rgba(255, 255, 255, 0.768);
+  backdrop-filter: blur(5px);
+  box-shadow: black 5px 5px 15px 5px;
+  width: 100%;
+}
+.dashboard .dashboard-info {
+  margin: 5%;
+}
+
 .left {
   background-color: rgba(234, 15, 62, 0.949);
   box-shadow: rgba(0, 0, 0, 0.567) 5px 5px 5px 5px;
   border-color: white;
   text-decoration: none;
-  width: 60vw;
-  height: 70vh;
+  width: 85%;
 }
 
 .right {
-  width: 80%;
-  align-items: center;
-  color: white;
+  color: #b98236;
   font-size: 0.8em;
+  width: 60vw;
 }
 .right .country-imgs {
   width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.567) 5px 5px 5px 5px;
-  border-radius: 5%;
+  box-shadow: black 10px 10px 25px 15px;
+  border: 0.1px #030303 solid;
+  margin-bottom: 5%;
+  border-radius: 2%;
 }
 .right .country-imgs .li-imgs {
-  color: black;
-  border-bottom: 1px black solid;
+  border-bottom: 0.1px grey solid;
   width: inherit;
   margin-bottom: 0%;
   align-items: center;
@@ -38,24 +47,26 @@
   background-color: transparent;
 }
 .right .arms-img {
-  height: 15vh;
-  width: 7vw;
+  width: 40%;
 }
 .right .flag-img {
   width: inherit;
   border-radius: 2%;
 }
 
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .home {
-  height: 120vh;
-  width: 100vw;
-  background-image: url("/public/img/compassMap.jpg");
-  background-position: center;
-  background-size: cover;
+  backdrop-filter: blur(0.8px);
 }
 .home .landing-page-form {
   z-index: 10%;
-  width: 56%;
+  width: 90vw;
   height: 5%;
   border-radius: 30px;
   border: 1px solid white;
@@ -63,12 +74,36 @@
 }
 .home .landing-page-form #search-box {
   font-size: 1.5em;
+  color: black;
   width: 90%;
   font-style: oblique;
 }
 
+.home-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 5%;
+}
+
 .map {
   background-color: #820000;
+  margin-top: 3%;
+  width: 100%;
+}
+.map #al {
+  color: #000;
+}
+
+.svg-map {
+  width: 90%;
 }
 
 form {
@@ -96,50 +131,19 @@ form button {
   cursor: pointer;
 }
 
-.nav-form {
-  width: 90%;
-  border: 5px solid black;
-}
-.nav-form #nav-search-box {
-  width: 70%;
-}
-
-nav {
-  position: fixed;
-  background-color: inherit;
-  width: 35%;
-}
-nav .header-nav-ul {
-  z-index: 40%;
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: column;
-  margin: 0%;
-}
-
-@media all and (min-width: 600px) {
-  /*Big smartphones [426px -> 600px]*/
-  nav {
-    display: none;
-  }
-}
 * {
   padding: 0%;
   margin: 0%;
 }
 
 .App {
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
   overflow-x: hidden;
 }
 .App ul {
   list-style: none;
-}
-
-@media all and (min-width: 600px) {
-  /*Big smartphones [426px -> 600px]*/
-  nav {
-    display: none;
-  }
 }
 
 /*# sourceMappingURL=index.css.map */

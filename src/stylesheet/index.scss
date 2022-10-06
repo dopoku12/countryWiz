@@ -8,16 +8,19 @@
 }
 
 .App {
+  // background-image: url("/public/img/compassMap.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
   overflow-x: hidden;
-
   ul {
     list-style: none;
   }
 }
 
-@media all and (min-width: 600px) {
-  /*Big smartphones [426px -> 600px]*/
-  nav {
-    display: none;
-  }
-}
+// @media all and (min-width: 600px) {
+//   /*Big smartphones [426px -> 600px]*/
+//   nav {
+//     display: none;
+//   }
+// }
