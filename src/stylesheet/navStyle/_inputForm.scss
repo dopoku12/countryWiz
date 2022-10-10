@@ -14,7 +14,7 @@ form {
     color: white;
   }
   input[type="search"]::placeholder {
-    color: rgb(255, 255, 255);
+    color: rgb(98, 95, 95);
   }
 
   button {
@@ -25,6 +25,12 @@ form {
   }
 }
 
+.options {
+  cursor: pointer;
+  &:hover {
+    background-color: #a8d3dc;
+  }
+}
 // .nav-form {
 //   width: 90%;
 //   border: 5px solid black;

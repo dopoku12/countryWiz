@@ -11,14 +11,14 @@ const Home = ({ SearchIcon, searchHandler, footerIcons }) => {
     const [submit, setSubmit] = useState(null);
     let { debounceValue } = useDebounce(name)
     const { data, error, pending } = useFetchApi(debounceValue, submit)
-    function handleSubmit(e) {
+    function handleSubmit(e, input) {
         e.preventDefault();
         submit || setSubmit(true)
+        setSubmit(input)
     };
     function handleInput(e) {
         setName(e.target.value)
     }
-
     return (
         <div className="home">
             <header className="home-header" >
@@ -36,20 +36,17 @@ const Home = ({ SearchIcon, searchHandler, footerIcons }) => {
                             value={name}
                             onChange={handleInput} />
                         {
-
                             name && <Filter data={data} handleInput={handleInput} />
                         }
                     </form>
                 </nav>
                 {
-                    submit &&
-                    data.map(i => {
+                    data.slice(0, 1).map(i => {
                         let name = Object.values(i.name.nativeName);
                         let nativeName = Object.values(name.map(i => i.common));
                         console.log('nt', nativeName);
                         return (
                             <div className="banner" key={i.area}>
-
                                 <h1>
                                     {nativeName[0]}
                                 </h1>
@@ -57,7 +54,6 @@ const Home = ({ SearchIcon, searchHandler, footerIcons }) => {
                                     Country in {i.subregion}
                                 </h2>
                             </div>
-
                         )
                     })
                 }
@@ -65,9 +61,8 @@ const Home = ({ SearchIcon, searchHandler, footerIcons }) => {
 
             <main>
                 <WorldSvg />
-
-                <Dashboard data={data} pending={pending} />
-                <Content data={data} pending={pending} />
+                <Dashboard data={data.slice(0, 1)} pending={pending} />
+                <Content data={data.slice(0, 1)} pending={pending} />
             </main>
             <footer>
                 <Footer footerIcons={footerIcons} />

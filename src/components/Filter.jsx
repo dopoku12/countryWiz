@@ -3,8 +3,8 @@ const Filter = ({ data, handleInput }) => {
     console.log('filter:', sliceData);
     return (
         sliceData.map(i =>
-            <ul onClick={handleInput}>
-                <li key={i.area} >
+            <ul key={i.area}>
+                <li className="options"  >
                     {i.name.common}
                 </li>
             </ul>

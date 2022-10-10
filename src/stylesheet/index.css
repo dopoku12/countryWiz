@@ -114,13 +114,20 @@ form input[type=search] {
   color: white;
 }
 form input[type=search]::placeholder {
-  color: white;
+  color: #625f5f;
 }
 form button {
   border: 1px solid transparent;
   border-radius: inherit;
   background: transparent;
   cursor: pointer;
+}
+
+.options {
+  cursor: pointer;
+}
+.options:hover {
+  background-color: #a8d3dc;
 }
 
 * {
