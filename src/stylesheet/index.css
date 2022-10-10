@@ -64,7 +64,7 @@ main {
   z-index: 10%;
   width: 90vw;
   height: 5%;
-  border-radius: 30px;
+  border-radius: 20px;
   border: 1px solid white;
   box-shadow: 5px 5px 5px 5px black;
   margin-bottom: 5%;
@@ -74,6 +74,14 @@ main {
   color: black;
   width: 90%;
   font-style: oblique;
+}
+.home .landing-page-form .options {
+  align-items: center;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.home .landing-page-form .options:hover {
+  background-color: #a8d3dc;
 }
 
 .home-header {
@@ -121,13 +129,6 @@ form button {
   border-radius: inherit;
   background: transparent;
   cursor: pointer;
-}
-
-.options {
-  cursor: pointer;
-}
-.options:hover {
-  background-color: #a8d3dc;
 }
 
 * {

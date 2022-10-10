@@ -38,6 +38,6 @@ const useFetchApi = (debounceValue, submit) => {
         countryApi()
 
     }, [debounceValue, usrCountry])
-    return { data, error, pending };
+    return { data, pending };
 }
 export default useFetchApi;

@@ -10,20 +10,33 @@ const Home = ({ SearchIcon, searchHandler, footerIcons }) => {
     const [name, setName] = useState('');
     const [submit, setSubmit] = useState(null);
     let { debounceValue } = useDebounce(name)
-    const { data, error, pending } = useFetchApi(debounceValue, submit)
-    function handleSubmit(e, input) {
-        e.preventDefault();
-        submit || setSubmit(true)
-        setSubmit(input)
-    };
-    function handleInput(e) {
+    const { data, pending } = useFetchApi(debounceValue, submit)
+    function inputHandler(e) {
         setName(e.target.value)
-    }
+        name && setSubmit(true)
+    };
     return (
         <div className="home">
             <header className="home-header" >
-                <nav >
-                    <form className="landing-page-form" onSubmit={handleSubmit}>
+                {
+                    data.slice(0, 1).map(i => {
+                        let name = Object.values(i.name.nativeName);
+                        let nativeName = Object.values(name.map(i => i.common));
+                        return (
+                            <div className="banner" key={i.area}>
+                                <h1>{
+                                    pending ? 'LOADING...' : nativeName[0]
+                                }
+                                </h1>
+                                <h2>
+                                    Country in {i.subregion}
+                                </h2>
+                            </div>
+                        )
+                    })
+                }
+                <nav>
+                    <form className="landing-page-form">
                         <button>
                             <SearchIcon
                                 type="submit"
@@ -34,31 +47,13 @@ const Home = ({ SearchIcon, searchHandler, footerIcons }) => {
                         <input type="search" id="search-box"
                             placeholder='Enter Country Name ....'
                             value={name}
-                            onChange={handleInput} />
+                            onChange={inputHandler} />
                         {
-                            name && <Filter data={data} handleInput={handleInput} />
+                            name && <Filter data={data.slice(0, 10)} setName={setName} setSubmit={setSubmit} />
                         }
                     </form>
                 </nav>
-                {
-                    data.slice(0, 1).map(i => {
-                        let name = Object.values(i.name.nativeName);
-                        let nativeName = Object.values(name.map(i => i.common));
-                        console.log('nt', nativeName);
-                        return (
-                            <div className="banner" key={i.area}>
-                                <h1>
-                                    {nativeName[0]}
-                                </h1>
-                                <h2>
-                                    Country in {i.subregion}
-                                </h2>
-                            </div>
-                        )
-                    })
-                }
             </header>
-
             <main>
                 <WorldSvg />
                 <Dashboard data={data.slice(0, 1)} pending={pending} />
