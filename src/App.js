@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Link, } from "react-router-dom"
-import { FaGithub, FaLinkedin, FaEnvelope, FaMap, FaHome, FaRocket, FaSearch, FaBookmark, FaListUl } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaEnvelope, FaMap, FaHome, FaRocket, FaSearch, FaListUl } from 'react-icons/fa'
 import { useState } from "react";
 import Home from "./pages/Home";
 import Nav from "./components/Nav";
@@ -62,7 +62,7 @@ function App() {
         <Routes>
           <Route path="/" element={
             <Home SearchIcon={FaSearch}
-              BookMark={FaBookmark}
+
               footerIcons={iconLinks.filter((i) => i.id >= 3)}
             />
           } />

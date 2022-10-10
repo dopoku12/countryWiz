@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import useGeoLocation from "./usegeolocation"
-const useFetchApi = (debounceValue) => {
+const useFetchApi = (debounceValue, submit) => {
     const [data, setData] = useState([]);
     const [pending, setPending] = useState(true);
     const [error, setErrorHandler] = useState(null);
@@ -18,7 +18,7 @@ const useFetchApi = (debounceValue) => {
                     const res = await axios.get(url)
                     if (res && res.data)
                         setPending(false);
-                    setData(res.data);
+                    setData(res.data)
                 }
 
                 catch (err) {

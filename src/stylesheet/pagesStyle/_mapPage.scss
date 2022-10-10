@@ -1,12 +1,8 @@
-.map {
-  background-color: rgb(130, 0, 0);
-  margin-top: 3%;
-  width: 100%;
-  #al {
-    color: #000;
-  }
-}
-
 .svg-map {
-  width: 90%;
+  width: 70%;
+  // border: 3px solid red;
+  fill: #a8d3dc;
+  &:hover {
+    fill: #1cabe2;
+  }
 }

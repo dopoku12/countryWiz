@@ -6,10 +6,13 @@ const Dashboard = ({ data, pending }) => {
                 console.log('nt', i.name.common);
                 // let freedomHouse = `https://freedomhouse.org/country/${i.name.common}/freedom-world/2022`
                 return (
-                    <div className="dashboard-info">
+                    <div className="dashboard-info" key={i.area}>
                         <h3>
                             Officially {i.name.official} / {i.cca3}
                         </h3>
+                        <li>
+                            {i.unMember ? ' Member of United Nations' : 'Not a United Nations Member'}
+                        </li>
                         <li>
                             timezones:{i.timezones}
                         </li>
