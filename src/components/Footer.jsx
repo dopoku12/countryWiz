@@ -1,4 +1,3 @@
-
 function Footer({ footerIcons }) {
     return (
         <ul className='footer-nav-ul'>
@@ -15,8 +14,6 @@ function Footer({ footerIcons }) {
                 )
             }
         </ul>
-
-
     )
 }
 export default Footer

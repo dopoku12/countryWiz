@@ -1,4 +1,3 @@
-
 const Nav = ({ navIcons, searchHandler, RouterLinks, SearchIcon }) => {
     return (
         <nav className="header-nav">

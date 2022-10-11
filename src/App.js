@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Link, } from "react-router-dom"
 import { FaGithub, FaLinkedin, FaEnvelope, FaMap, FaHome, FaRocket, FaSearch, FaListUl } from 'react-icons/fa'
 import { useState } from "react";
 import Home from "./pages/Home";
-import Nav from "./components/Nav";
+
 import ErrorPage from "./pages/ErrorPage";
 import LandingPage from "./pages/LandingPage";
 function App() {
@@ -36,41 +36,16 @@ function App() {
       name: 'Email', pathName: '/'
     }]
 
-  function menuHandler() {
-    const changeStatus = true
-    status === false ?
-      setStatus(changeStatus) :
-      setStatus(status)
-  }
-  const windowPathName = window.location.pathname
-
   return (
     <div className="App">
       <BrowserRouter>
-        {
-          // <nav className="header-nav">
-          //   <FaListUl size={25} color='F47D2F' onClick={menuHandler} />
-          //     status &&
-          //     <Nav RouterLinks={Link}
-          //       SearchIcon={FaSearch}
-          //       BookMark={FaBookmark}
-          //       navIcons={iconLinks.filter((i) => i.id <= 2)}
-          //     />
-          //   }
-          // </nav>
-        }
         <Routes>
           <Route path="/" element={
             <Home SearchIcon={FaSearch}
-
-              footerIcons={iconLinks.filter((i) => i.id >= 3)}
-            />
+              footerIcons={iconLinks.filter((i) => i.id >= 3)} />
           } />
 
-          <Route path="/LandingPage" element={<LandingPage
-
-
-          />} />
+          <Route path="/LandingPage" element={<LandingPage />} />
           <Route path="/https://davidopoku-portfolio.netlify.app" />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
