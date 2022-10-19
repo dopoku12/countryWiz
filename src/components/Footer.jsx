@@ -2,7 +2,7 @@ function Footer({ footerIcons }) {
     return (
         <ul className='footer-nav-ul'>
             {
-                footerIcons.map((i) =>
+                footerIcons.map(i =>
                     <li key={i.id} className={i.name} >
                         <a target='_blank' rel="noreferrer" href={i.pathName} >
                             <p>

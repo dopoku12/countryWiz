@@ -1,5 +1,4 @@
 const Content = ({ data, pending }) => {
-    console.log('home:', data);
     return (
         <article className="content">
             {
@@ -33,7 +32,7 @@ const Content = ({ data, pending }) => {
                                 Currencies: {cur[0].name}{cur[0].symbol}
                             </li>
                             <li>
-                                Capital: {i.capital[0]}
+                                Capital: {i.capital}
                             </li>
 
                             <li>
@@ -58,7 +57,7 @@ const Content = ({ data, pending }) => {
                 })
                 }
             </section>
-            )
+
         </article>
     );
 }

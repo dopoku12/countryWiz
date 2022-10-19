@@ -2,6 +2,7 @@ import { useState } from "react";
 import useDebounce from "../hooks/usedebounce";
 import useFetchApi from "../hooks/usefetchapi";
 import WorldSvg from "../components/WorldSvg";
+import Svg from "../components/Svg";
 import Dashboard from "../components/Dashboard";
 import Content from "../components/Content"
 import Footer from "../components/Footer";
@@ -12,6 +13,7 @@ const Home = ({ SearchIcon, searchHandler, footerIcons }) => {
     let { debounceValue } = useDebounce(name)
     const { data, pending } = useFetchApi(debounceValue, submit)
     function inputHandler(e) {
+        e.preventDefault();
         setName(e.target.value)
         name && setSubmit(true)
     };
@@ -36,7 +38,12 @@ const Home = ({ SearchIcon, searchHandler, footerIcons }) => {
                     })
                 }
                 <nav>
-                    <form className="landing-page-form">
+                    <form className="landing-page-form" onSubmit={inputHandler}>
+                        <input type="search" id="search-box"
+                            placeholder='Enter Country Name ....'
+                            value={name}
+                            onChange={inputHandler} />
+
                         <button>
                             <SearchIcon
                                 type="submit"
@@ -44,10 +51,6 @@ const Home = ({ SearchIcon, searchHandler, footerIcons }) => {
                                 color=' #a8d3dc'
                                 size={15} />
                         </button>
-                        <input type="search" id="search-box"
-                            placeholder='Enter Country Name ....'
-                            value={name}
-                            onChange={inputHandler} />
                         {
                             name && <Filter data={data.slice(0, 10)} setName={setName} setSubmit={setSubmit} />
                         }
@@ -55,7 +58,8 @@ const Home = ({ SearchIcon, searchHandler, footerIcons }) => {
                 </nav>
             </header>
             <main>
-                <WorldSvg />
+
+                <WorldSvg cca2={data.map(i => i.cca2)} />
                 <Dashboard data={data.slice(0, 1)} pending={pending} />
                 <Content data={data.slice(0, 1)} pending={pending} />
             </main>

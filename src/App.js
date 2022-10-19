@@ -1,11 +1,9 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Link, } from "react-router-dom"
-import { FaGithub, FaLinkedin, FaEnvelope, FaMap, FaHome, FaRocket, FaSearch, FaListUl } from 'react-icons/fa'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { FaGithub, FaLinkedin, FaEnvelope, FaMap, FaHome, FaRocket, FaSearch, } from 'react-icons/fa'
 import { useState } from "react";
 import Home from "./pages/Home";
-
 import ErrorPage from "./pages/ErrorPage";
-import LandingPage from "./pages/LandingPage";
 function App() {
   const [status, setStatus] = useState(false)
   const iconLinks = [
@@ -45,7 +43,6 @@ function App() {
               footerIcons={iconLinks.filter((i) => i.id >= 3)} />
           } />
 
-          <Route path="/LandingPage" element={<LandingPage />} />
           <Route path="/https://davidopoku-portfolio.netlify.app" />
           <Route path="*" element={<ErrorPage />} />
         </Routes>

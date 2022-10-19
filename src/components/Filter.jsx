@@ -1,5 +1,5 @@
 import { useState } from "react";
-const Filter = ({ data, setName, setSubmit }) => {
+const Filter = ({ data, setName }) => {
     const [status, setStatus] = useState(true)
     const filterOptions = data.map(i => {
         function clickHandler() {
@@ -10,7 +10,11 @@ const Filter = ({ data, setName, setSubmit }) => {
             status &&
             <ul key={i.area}>
                 <li className="options" onClick={clickHandler}>
-                    {i.name.common}
+                    <img className="filter-imgs" src={i.flags.svg}
+                        alt="flag" />
+                    <h3>
+                        {i.name.common}
+                    </h3>
                 </li>
             </ul>
         )
