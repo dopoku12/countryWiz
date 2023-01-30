@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { FaGithub, FaLinkedin, FaEnvelope, FaMap, FaHome, FaRocket, FaSearch, } from 'react-icons/fa'
 import { useState } from "react";
 import Home from "./pages/Home";
+
 import ErrorPage from "./pages/ErrorPage";
 function App() {
   const [status, setStatus] = useState(false)

@@ -2,11 +2,13 @@ import { useState } from "react";
 import useDebounce from "../hooks/usedebounce";
 import useFetchApi from "../hooks/usefetchapi";
 import WorldSvg from "../components/WorldSvg";
-import Svg from "../components/Svg";
+import SvgAction from "../components/SvgAction";
 import Dashboard from "../components/Dashboard";
 import Content from "../components/Content"
 import Footer from "../components/Footer";
 import Filter from "../components/Filter";
+import Svg from "../components/Svg";
+
 const Home = ({ SearchIcon, searchHandler, footerIcons }) => {
     const [name, setName] = useState('');
     const [submit, setSubmit] = useState(null);
@@ -58,8 +60,25 @@ const Home = ({ SearchIcon, searchHandler, footerIcons }) => {
                 </nav>
             </header>
             <main>
-
-                <WorldSvg cca2={data.map(i => i.cca2)} />
+                {
+                    // <WorldSvg />
+                    //    <Test />
+                }
+                <svg
+                    id="svgMap"
+                    className="svg-map"
+                    mapsvg="http://mapsvg.com"
+                    dc="http://purl.org/dc/elements/1.1/"
+                    rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                    svg="http://www.w3.org/2000/svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="-50 -20 1090 700"
+                    stroke='white'
+                    fill=" #a8d3dc"
+                    strokeWidth={1}
+                >
+                    <WorldSvg />
+                </svg>
                 <Dashboard data={data.slice(0, 1)} pending={pending} />
                 <Content data={data.slice(0, 1)} pending={pending} />
             </main>
