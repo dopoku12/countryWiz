@@ -7,8 +7,8 @@ const useFetchApi = (debounceValue) => {
     const [error, setErrorHandler] = useState(null);
     const { usrCountry } = useGeoLocation();
 
-    let urlName = `https://restcountries.com/v3.1/name` + '/' + debounceValue
-    const isoName = `https://restcountries.com/v3.1/alpha` + '/' + usrCountry
+    let urlName = `https://restcountries.com/v3.1/name/ ${debounceValue}`;
+    const isoName = `https://restcountries.com/v3.1/alpha/${usrCountry}`;
 
     useEffect(() => {
         const countryApi = ((value) => {
@@ -37,7 +37,7 @@ const useFetchApi = (debounceValue) => {
         })(debounceValue ? urlName : isoName)
         countryApi()
 
-    }, [debounceValue, usrCountry])
+    }, [debounceValue, isoName, urlName])
     return { data, pending, error };
 }
 export default useFetchApi;
