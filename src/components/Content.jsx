@@ -19,8 +19,7 @@ const Content = ({ data, pending }) => {
             </section>
             <section className="right">
                 {data.map(i => {
-                    let name = Object.values(i.name.nativeName);
-                    let nativeName = Object.values(name.map(i => i.common));
+
                     let cur = Object.values(i.currencies)
                     return (
                         <ul className="country-imgs" key={i.area}>
