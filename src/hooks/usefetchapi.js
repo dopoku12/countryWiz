@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import useGeoLocation from "./usegeolocation"
-const useFetchApi = (debounceValue, submit) => {
+const useFetchApi = (debounceValue) => {
     const [data, setData] = useState([]);
     const [pending, setPending] = useState(true);
     const [error, setErrorHandler] = useState(null);
@@ -38,6 +38,6 @@ const useFetchApi = (debounceValue, submit) => {
         countryApi()
 
     }, [debounceValue, usrCountry])
-    return { data, pending };
+    return { data, pending, error };
 }
 export default useFetchApi;

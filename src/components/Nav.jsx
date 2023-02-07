@@ -1,4 +1,4 @@
-const Nav = ({ navIcons, searchHandler, RouterLinks, SearchIcon }) => {
+const Nav = ({ navIcons, RouterLinks, }) => {
     return (
         <nav className="header-nav">
             <ul className="header-nav-ul">
