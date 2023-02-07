@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Svg from "./Svg";
 const WorldSvg = () => {
     return (
         <svg className="map" >

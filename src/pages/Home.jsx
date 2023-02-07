@@ -2,12 +2,12 @@ import { useState } from "react";
 import useDebounce from "../hooks/usedebounce";
 import useFetchApi from "../hooks/usefetchapi";
 import WorldSvg from "../components/WorldSvg";
-import SvgAction from "../components/SvgAction";
+// import SVGComponent from "../components/SVGComponent";
 import Dashboard from "../components/Dashboard";
 import Content from "../components/Content"
 import Footer from "../components/Footer";
 import Filter from "../components/Filter";
-import Svg from "../components/Svg";
+
 
 const Home = ({ SearchIcon, searchHandler, footerIcons }) => {
     const [name, setName] = useState('');
@@ -60,10 +60,7 @@ const Home = ({ SearchIcon, searchHandler, footerIcons }) => {
                 </nav>
             </header>
             <main>
-                {
-                    // <WorldSvg />
-                    //    <Test />
-                }
+
                 <svg
                     id="svgMap"
                     className="svg-map"
