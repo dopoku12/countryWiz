@@ -11,7 +11,7 @@ const useGeoLocation = () => {
                 const lat = position.coords.latitude
                 const lng = position.coords.longitude;
 
-                const revGeoLocation = ((lat, lng) => {
+                ((lat, lng) => {
                     const url = `https://api.tomtom.com/search/2/reverseGeocode/${lat},${lng}.json?key=${apiKey}`;
                     return (async (url) => {
                         try {
@@ -31,7 +31,7 @@ const useGeoLocation = () => {
 
             },
             (error) => console.log('error2:'))
-    }, [])
+    }, [apiKey])
     return { usrCountry }
 }
 export default useGeoLocation;
