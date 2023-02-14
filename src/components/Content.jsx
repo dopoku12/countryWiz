@@ -4,25 +4,12 @@ const Content = ({ data, pending }) => {
             {
                 pending && <h1>LOADING...</h1>
             }
-            <section className="left">
-                <ul className="country-info">
-                    {
-                        data.map(i => {
-                            return (
-                                <ul className="" key={i.area}>
-                                </ul>
-                            )
-                        }
-                        )
-                    }
-                </ul>
-            </section>
             <section className="right">
                 {data.map(i => {
 
                     let cur = Object.values(i.currencies)
                     return (
-                        <ul className="country-imgs" key={i.area}>
+                        <ul className="country-card" key={i.area}>
                             <li className="li-imgs">
                                 <img className="flag-img" src={i.flags.svg} alt="flags" />
                             </li>

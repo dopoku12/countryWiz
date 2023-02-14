@@ -8,7 +8,6 @@ import Content from "../components/Content"
 import Footer from "../components/Footer";
 import Filter from "../components/Filter";
 
-
 const Home = ({ SearchIcon, searchHandler, footerIcons }) => {
     const [name, setName] = useState('');
     const [submit, setSubmit] = useState(null);
@@ -60,7 +59,6 @@ const Home = ({ SearchIcon, searchHandler, footerIcons }) => {
                 </nav>
             </header>
             <main>
-
                 <svg
                     id="svgMap"
                     className="svg-map"
