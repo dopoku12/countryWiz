@@ -33,9 +33,8 @@ function App() {
 
   return (
     <div className="App">
-
       <Home SearchIcon={FaSearch}
-        footerIcons={iconLinks.filter((i) => i.id >= 3)} />
+        footerIcons={iconLinks.filter((i) => i.id >= 3)} 
     </div>
   );
 }
