@@ -19,7 +19,7 @@ function App() {
 
     {
       id: 3, colorCode: '8cac5', iconName: FaRocket,
-      name: 'Portfolio', pathName: ''
+      name: 'Portfolio', pathName: 'https://davidopoku-portfolio.netlify.app/'
     },
 
     {
