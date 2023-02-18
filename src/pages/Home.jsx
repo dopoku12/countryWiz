@@ -1,23 +1,23 @@
+import { Form } from "react-router-dom";
 import { useState } from "react";
 import useDebounce from "../hooks/usedebounce";
 import useFetchApi from "../hooks/usefetchapi";
-import WorldSvg from "../components/WorldSvg";
-// import SVGComponent from "../components/SVGComponent";
+
 import Dashboard from "../components/Dashboard";
 import Content from "../components/Content"
 import Footer from "../components/Footer";
 import Filter from "../components/Filter";
 
 const Home = ({ SearchIcon, searchHandler, footerIcons }) => {
-    const [name, setName] = useState('');
+    let [name, setName] = useState('');
     const [submit, setSubmit] = useState(null);
     let { debounceValue } = useDebounce(name)
     const { data, pending } = useFetchApi(debounceValue, submit)
-    function inputHandler(e) {
-        e.preventDefault();
-        setName(e.target.value)
-        name && setSubmit(true)
-    };
+    // function inputHandler(e) {
+    //     e.preventDefault();
+    //     setName(e.target.value)
+    //     name && setSubmit(true)
+    // };
     return (
         <div className="home">
             <header className="home-header" >
@@ -28,7 +28,7 @@ const Home = ({ SearchIcon, searchHandler, footerIcons }) => {
                         return (
                             <div className="banner" key={i.area}>
                                 <h1>{
-                                    pending ? 'LOADING...' : nativeName[0]
+                                    pending ? 'LOADING USER LOCATION...' : nativeName[0]
                                 }
                                 </h1>
                                 <h2>
@@ -39,15 +39,14 @@ const Home = ({ SearchIcon, searchHandler, footerIcons }) => {
                     })
                 }
                 <nav>
-                    <form className="landing-page-form" onSubmit={inputHandler}>
+                    <Form className="landing-page-form" method='get' action="/">
                         <input type="search" id="search-box"
                             placeholder='Enter Country Name ....'
-                            value={name}
-                            onChange={inputHandler} />
-
-                        <button>
+                            name="country"
+                            onChange={(e) => setName(e.target.value)}
+                            value={name} />
+                        <button type="submit">
                             <SearchIcon
-                                type="submit"
                                 className="search-icon"
                                 color=' #a8d3dc'
                                 size={15} />
@@ -55,25 +54,11 @@ const Home = ({ SearchIcon, searchHandler, footerIcons }) => {
                         {
                             name && <Filter data={data.slice(0, 10)} setName={setName} setSubmit={setSubmit} />
                         }
-                    </form>
+                    </Form>
                 </nav>
             </header>
             <main>
-                <svg
-                    id="svgMap"
-                    className="svg-map"
-                    mapsvg="http://mapsvg.com"
-                    dc="http://purl.org/dc/elements/1.1/"
-                    rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                    svg="http://www.w3.org/2000/svg"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="-50 -20 1090 700"
-                    stroke='white'
-                    fill=" #a8d3dc"
-                    strokeWidth={1}
-                >
-                    <WorldSvg />
-                </svg>
+
                 <Dashboard data={data.slice(0, 1)} pending={pending} />
                 <Content data={data.slice(0, 1)} pending={pending} />
             </main>
