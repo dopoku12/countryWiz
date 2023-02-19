@@ -4,7 +4,6 @@ function ErrorPage() {
             <h1>
                 404 Error
             </h1>
-
             <p>
                 Sorry Page Not Found
             </p>
