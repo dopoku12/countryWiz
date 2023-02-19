@@ -1,21 +1,19 @@
-const Nav = ({ navIcons, RouterLinks, }) => {
+function Nav({ Icons }) {
     return (
-        <nav className="header-nav">
-            <ul className="header-nav-ul">
-
-                {navIcons.map((i) =>
-                    <li key={i.population} className={i.name} >
-                        <RouterLinks to={i.pathName}>
-                            <label>
+        <ul className='flex space-x-3'>
+            {
+                Icons.map(i =>
+                    <li key={i.id} className={i.name} >
+                        <a target='_blank' rel="noreferrer" href={i.pathName} >
+                            <p>
                                 <i.iconName size={25} color={i.colorCode} />
                                 {i.name}
-                            </label>
-                        </RouterLinks>
+                            </p>
+                        </a>
                     </li>
-                )}
-            </ul>
-        </nav>
-    );
+                )
+            }
+        </ul>
+    )
 }
-
-export default Nav;
+export default Nav

@@ -44,17 +44,6 @@
   border-radius: 2%;
 }
 
-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.home {
-  backdrop-filter: blur(0.8px);
-  align-items: center;
-}
 .home .landing-page-form {
   z-index: 10%;
   width: 100%;
@@ -65,7 +54,7 @@ main {
 }
 .home .landing-page-form #search-box {
   font-size: 1.5em;
-  color: black;
+  color: white;
   width: 90%;
   font-style: oblique;
 }
@@ -105,16 +94,6 @@ main {
   margin: 5%;
 }
 
-.map {
-  width: 80%;
-  height: 100%;
-  border: 3px solid #00ff6e;
-}
-
-.svg-map {
-  width: 50%;
-}
-
 form {
   padding: 2px;
   border-radius: 5px;
@@ -131,7 +110,7 @@ form input[type=search] {
   color: white;
 }
 form input[type=search]::placeholder {
-  color: #625f5f;
+  color: white;
 }
 form button {
   border: 1px solid transparent;
@@ -140,17 +119,14 @@ form button {
   cursor: pointer;
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 * {
   padding: 0%;
   margin: 0%;
 }
 
-.App {
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  overflow-x: hidden;
-}
 .App ul {
   list-style: none;
 }

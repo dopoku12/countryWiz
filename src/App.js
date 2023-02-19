@@ -32,10 +32,10 @@ function App() {
     }]
 
   return (
-    <div className="App">
+    <div className="text-white min-h-screen bg-slate-800">
 
       <Home SearchIcon={FaSearch}
-        footerIcons={iconLinks.filter((i) => i.id >= 3)} />
+        Icons={iconLinks.filter((i) => i.id >= 3)} />
     </div>
   );
 }

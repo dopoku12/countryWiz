@@ -1,16 +1,6 @@
 @use "../styleComp/info.scss";
 
-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
 .home {
-  backdrop-filter: blur(0.8px);
-
-  align-items: center;
   .landing-page-form {
     z-index: 10%;
     width: 100%;
@@ -21,7 +11,7 @@ main {
     margin-bottom: 5%;
     #search-box {
       font-size: 1.5em;
-      color: black;
+      color: white;
       width: 90%;
       font-style: oblique;
     }

@@ -8,17 +8,6 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    action:
-      async ({ request }) => {
-        console.log(request)
-        const data = await request.fromData()
-        const submission = {
-          country: data.get('country')
-        }
-        console.log(submission);
-        return submission
-      }
-    ,
     errorElement: <ErrorPage />
   },
 ])

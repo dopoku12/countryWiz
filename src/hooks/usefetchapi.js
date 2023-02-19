@@ -9,6 +9,7 @@ const useFetchApi = (debounceValue) => {
 
     let urlName = `https://restcountries.com/v3.1/name/ ${debounceValue}`;
     const isoName = `https://restcountries.com/v3.1/alpha/${usrCountry}`;
+    // const cont = `https://restcountries.com/v3.1/region/${region}`
 
     useEffect(() => {
         const countryApi = ((value) => {
@@ -36,7 +37,7 @@ const useFetchApi = (debounceValue) => {
 
         })(debounceValue ? urlName : isoName)
         countryApi()
-    }, [debounceValue, isoName, urlName])
+    }, [isoName, urlName])
     return { data, pending, error };
 }
 export default useFetchApi;
