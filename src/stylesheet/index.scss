@@ -1,19 +1,16 @@
 @use "./pagesStyle/home.scss";
-@use "./pagesStyle/mapPage";
+
 @use "./navStyle/inputForm";
-@use "./navStyle/menu";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   padding: 0%;
   margin: 0%;
 }
 
 .App {
-  // background-image: url("/public/img/compassMap.jpg");
-
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  overflow-x: hidden;
   ul {
     list-style: none;
   }
