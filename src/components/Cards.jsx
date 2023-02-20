@@ -7,11 +7,11 @@ const Cards = ({ data, pending }) => {
             {
                 data.map(i => {
                     return (
-                        <section className=" m-4">
+                        <section key={i.area} className=" m-4">
                             <ul className="max-w-sm rounded 
                         overflow-hidden 
                         shadow-2xl"
-                                key={i.area}>
+                            >
                                 <img className="w-full" src={i.flags.svg} alt="flags" />
 
                                 <h1 className="font-bold text-2xl">
