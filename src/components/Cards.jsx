@@ -4,7 +4,7 @@ const Cards = ({ data, pending }) => {
             {
                 pending && <h1>LOADING...</h1>
             }
-            <section className="flex items-center justify-center p-3">
+            <section className="flex items-center flex flex-wrap justify-center p-6">
                 {data.map(i => {
 
                     let cur = Object.values(i.currencies)

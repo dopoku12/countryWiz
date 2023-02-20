@@ -3,20 +3,28 @@ import { useState } from "react";
 import useDebounce from "../hooks/usedebounce";
 import useFetchApi from "../hooks/usefetchapi";
 import Cards from "../components/Cards";
+import Input from "../components/Input";
 // import Content from "../components/Content"
 import Nav from "../components/Nav";
-import { Filter } from "../components/Filter";
+import { Options } from "../components/Filter";
 
 const Home = ({ SearchIcon, searchHandler, Icons }) => {
+    //sets Default region value is passed as a prop for Options
+    const [region, setRegion] = useState('Africa')
+    console.log(region);
+
+    //Default value before anything is entered in Input component
     let [name, setName] = useState('');
-    const [submit, setSubmit] = useState(null);
-    let { debounceValue } = useDebounce(name)
-    const { data, pending } = useFetchApi(debounceValue, submit)
+    //changes setName Value after usrInput
     function inputHandler(e) {
         e.preventDefault();
         setName(e.target.value)
-        name && setSubmit(true)
+
     };
+    //Debounces usr input
+    let { debounceValue } = useDebounce(name)
+    //takes debounced value&region value returns api data
+    const { data, pending } = useFetchApi(debounceValue, region)
     return (
         <div className="home">
             <header className=" flex justify-between shadow-2xl shadow-black-50 p-4" >
@@ -43,33 +51,22 @@ const Home = ({ SearchIcon, searchHandler, Icons }) => {
                 })
             }
             <nav className="flex  flex-nowrap">
-                <form className="landing-page-form" onSubmit={inputHandler}>
-                    <input type="search" id="search-box"
-                        placeholder='Enter Country Name ....'
-                        value={name}
-                        onChange={inputHandler} />
+                <Input SearchIcon={SearchIcon}
+                    setName={setName}
+                    name={name}
+                    data={data}
+                    inputHandler={inputHandler} />
 
-                    <button>
-                        <SearchIcon
-                            type="submit"
-                            className="search-icon"
-                            color=' #a8d3dc'
-                            size={15} />
-                    </button>
-                    {
-                        name && <Filter data={data.slice(0, 10)} setName={setName} setSubmit={setSubmit} />
-                    }
-                </form>
-                {//<Options />
-                }
+                <Options setRegion={setRegion} region={region} />
             </nav>
-            <main>
+
+            <main className="">
                 {
                     console.log(data)}
                 {
                     console.log('slice', data.slice(0, 1))
                 }
-                <Cards data={data.slice(0, 1)} pending={pending} />
+                <Cards data={data.slice(0, 8)} pending={pending} />
                 {
                     //  <Content data={data.slice(0, 1)} pending={pending} />
                 }
