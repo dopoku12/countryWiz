@@ -38,7 +38,7 @@ const useFetchApi = (debounceValue, region) => {
 
         })(debounceValue ? urlName : cont)
         countryApi()
-    }, [isoName, urlName, cont])
+    }, [debounceValue, isoName, urlName, cont])
     return { data, pending, error };
 }
 export default useFetchApi;

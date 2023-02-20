@@ -1,48 +1,38 @@
 const Cards = ({ data, pending }) => {
     return (
-        <article className="">
+        <article className="flex flex-wrap justify-center">
             {
                 pending && <h1>LOADING...</h1>
             }
-            <section className="flex items-center flex flex-wrap justify-center p-6">
-                {data.map(i => {
-
-                    let cur = Object.values(i.currencies)
+            {
+                data.map(i => {
                     return (
-                        <ul className="max-w-sm rounded overflow-hidden shadow-lg " key={i.area}>
-                            <img className="w-full" src={i.flags.svg} alt="flags" />
-                            <li className="li-imgs">
-                            </li>
+                        <section key={i.area} className=" m-4">
+                            <ul className="max-w-sm rounded 
+                        overflow-hidden 
+                        shadow-2xl"
+                            >
+                                <img className="w-full" src={i.flags.svg} alt="flags" />
 
-                            <li>
-                                Currencies: {cur[0].name}{cur[0].symbol}
-                            </li>
-                            <li>
-                                Capital: {i.capital}
-                            </li>
+                                <h1 className="font-bold text-2xl">
+                                    {i.name.common}
+                                </h1>
 
-                            <li>
-                                Languages: {
-                                    Object.values(i.languages)
-                                }
-                            </li>
-                            <li>
-                                Drive Side: {i.car.side}
-                            </li>
+                                <li>
+                                    Population: {i.population}
+                                </li>
+                                <li>
+                                    Region: {i.region}
+                                </li>
 
-                            <li>
-                                Population: {i.population}
-                            </li>
-
-                            <li>
-                                startOfWeek:{i.startOfWeek}
-                            </li>
-
-                        </ul>
+                                <li>
+                                    Capital: {i.capital}
+                                </li>
+                            </ul>
+                        </section>
                     )
                 })
-                }
-            </section>
+            }
 
         </article>
     );

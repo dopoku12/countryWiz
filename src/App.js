@@ -20,15 +20,15 @@ function App() {
 
     {
       id: 4, colorCode: 'black', iconName: FaGithub,
-      name: 'Github', pathName: '/https://github.com/dopoku12'
+      name: 'Github', pathName: 'https://github.com/dopoku12'
     },
     {
       id: 5, colorCode: ' #0077b5', iconName: FaLinkedin,
-      name: 'Linkedin', pathName: '/https://www.linkedin.com/in/david-opoku-7008721b7'
+      name: 'Linkedin', pathName: 'https://www.linkedin.com/in/david-opoku-7008721b7'
     },
     {
       id: 6, colorCode: '78cac5', iconName: FaEnvelope,
-      name: 'Email', pathName: '/'
+      name: 'Email', pathName: ''
     }]
 
   return (

@@ -28,28 +28,12 @@ const Home = ({ SearchIcon, searchHandler, Icons }) => {
     return (
         <div className="home">
             <header className=" flex justify-between shadow-2xl shadow-black-50 p-4" >
-                <h1 className=" font-bold text-4xl ">
+                <h1 className="font-bold text-4xl ">
                     Where in the World?
                 </h1>
                 <Nav Icons={Icons} />
             </header>
-            {
-                data.slice(0, 1).map(i => {
-                    let name = Object.values(i.name.nativeName);
-                    let nativeName = Object.values(name.map(i => i.common));
-                    return (
-                        <div className=" banner font-bold text-2xl" key={i.area}>
-                            <h1>{
-                                pending ? 'LOADING USER LOCATION...' : nativeName[0]
-                            }
-                            </h1>
-                            <h2>
-                                Country in {i.subregion}
-                            </h2>
-                        </div>
-                    )
-                })
-            }
+
             <nav className="flex  flex-nowrap">
                 <Input SearchIcon={SearchIcon}
                     setName={setName}
@@ -60,12 +44,8 @@ const Home = ({ SearchIcon, searchHandler, Icons }) => {
                 <Options setRegion={setRegion} region={region} />
             </nav>
 
-            <main className="">
-                {
-                    console.log(data)}
-                {
-                    console.log('slice', data.slice(0, 1))
-                }
+            <main>
+
                 <Cards data={data.slice(0, 8)} pending={pending} />
                 {
                     //  <Content data={data.slice(0, 1)} pending={pending} />
