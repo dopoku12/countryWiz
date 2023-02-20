@@ -52,7 +52,7 @@ const Home = ({ SearchIcon, searchHandler, Icons }) => {
                 }
             </main>
             <footer>
-                copyright 2020 ©
+                copyright David Opoku 2020 ©
             </footer>
         </div>
     );
