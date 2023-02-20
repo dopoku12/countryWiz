@@ -29,8 +29,10 @@ export const Options = ({ region, setRegion }) => {
         <div>
             <select id="countries"
                 onChange={(e) => setRegion(e.target.value)}
-                className="text-gray-900 text-sm rounded-lg  
-            focus:border-blue-500 block w-full p-2.5">
+                className="bg-inherit
+                text-sm rounded-lg 
+               focus:bg-slate-800
+             block w-full p-2.5">
                 <option >Filter by Region</option>
                 <option defaultValue={region}>Africa</option>
                 <option value="Asia">Asia</option>
