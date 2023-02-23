@@ -36,7 +36,7 @@ export const Options = ({ region, setRegion }) => {
                 <option >Filter by Region</option>
                 <option defaultValue={region}>Africa</option>
                 <option value="Asia">Asia</option>
-                <option value="America">America</option>
+                <option value="Americas">Americas</option>
                 <option value="Oceania">Oceania</option>
             </select>
         </div>
