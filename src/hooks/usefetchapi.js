@@ -20,7 +20,7 @@ const useFetchApi = (debounceValue, region) => {
                     if (res && res.data)
                         setPending(false);
                     setData(res.data)
-                    console.log('axios', value);
+                    // console.log('axios', value);
                 }
 
                 catch (err) {

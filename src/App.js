@@ -1,6 +1,7 @@
 import React from "react";
 import { FaGithub, FaLinkedin, FaEnvelope, FaMap, FaHome, FaRocket, FaSearch, } from 'react-icons/fa'
 import Home from "./pages/Home";
+
 function App() {
   // const [status, setStatus] = useState(false)
   const iconLinks = [
@@ -36,6 +37,8 @@ function App() {
 
       <Home SearchIcon={FaSearch}
         Icons={iconLinks.filter((i) => i.id >= 3)} />
+
+
     </div>
   );
 }

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Cards = ({ data, pending }) => {
     return (
         <article className="flex flex-wrap justify-center">
@@ -12,7 +14,9 @@ const Cards = ({ data, pending }) => {
                         overflow-hidden 
                         shadow-2xl"
                             >
-                                <img className="w-full" src={i.flags.svg} alt="flags" />
+                                <Link to={`/country${i.area}`}>
+                                    <img className="w-full" src={i.flags.svg} alt="flags" />
+                                </Link>
 
                                 <h1 className="font-bold text-2xl">
                                     {i.name.common}

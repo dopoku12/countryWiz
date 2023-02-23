@@ -4,29 +4,25 @@ import useDebounce from "../hooks/usedebounce";
 import useFetchApi from "../hooks/usefetchapi";
 import Cards from "../components/Cards";
 import Input from "../components/Input";
-// import Content from "../components/Content"
 import Nav from "../components/Nav";
 import { Options } from "../components/Filter";
 
 const Home = ({ SearchIcon, searchHandler, Icons }) => {
     //sets Default region value is passed as a prop for Options
     const [region, setRegion] = useState('Africa')
-    console.log(region);
-
     //Default value before anything is entered in Input component
     let [name, setName] = useState('');
     //changes setName Value after usrInput
     function inputHandler(e) {
         e.preventDefault();
         setName(e.target.value)
-
     };
     //Debounces usr input
     let { debounceValue } = useDebounce(name)
     //takes debounced value&region value returns api data
     const { data, pending } = useFetchApi(debounceValue, region)
     return (
-        <div className="home">
+        <div className="">
             <header className=" flex justify-between shadow-2xl shadow-black-50 p-4" >
                 <h1 className="font-bold text-4xl ">
                     Where in the World?
@@ -45,11 +41,8 @@ const Home = ({ SearchIcon, searchHandler, Icons }) => {
             </nav>
 
             <main>
-
                 <Cards data={data.slice(0, 8)} pending={pending} />
-                {
-                    //  <Content data={data.slice(0, 1)} pending={pending} />
-                }
+
             </main>
             <footer>
                 copyright David Opoku 2020 ©
