@@ -1,6 +1,13 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import useDebounce from "../hooks/usedebounce";
+const Cards = ({ data, pending, setName }) => {
 
-const Cards = ({ data, pending }) => {
+    const navigate = useNavigate()
+    function handleClick(name) {
+        setName(name)
+        navigate(`/country`)
+    };
     return (
         <article className="flex flex-wrap justify-center">
             {
@@ -9,14 +16,19 @@ const Cards = ({ data, pending }) => {
             {
                 data.map(i => {
                     return (
-                        <section key={i.area} className=" m-4">
-                            <ul className="max-w-sm rounded 
-                        overflow-hidden 
-                        shadow-2xl"
+                        <section key={i.area}
+                            className="m-4">
+                            <ul className="max-w-sm 
+                            rounded 
+                            overflow-hidden 
+                            shadow-2xl"
+                                onClick={() => handleClick(i.name.common)}
+                                value={i.name.common}
                             >
-                                <Link to={`/country${i.area}`}>
-                                    <img className="w-full" src={i.flags.svg} alt="flags" />
-                                </Link>
+                                <img className="w-full"
+                                    src={i.flags.svg}
+                                    alt="flags"
+                                />
 
                                 <h1 className="font-bold text-2xl">
                                     {i.name.common}
@@ -33,6 +45,8 @@ const Cards = ({ data, pending }) => {
                                     Capital: {i.capital}
                                 </li>
                             </ul>
+
+
                         </section>
                     )
                 })

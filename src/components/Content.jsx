@@ -1,9 +1,10 @@
-const Content = ({ data, pending }) => {
+import useFetchApi from "../hooks/usefetchapi";
+const Content = () => {
+    const { data, pending } = useFetchApi()
+    console.log(data);
     return (
         <article className="content">
-            {
-                pending && <h1>LOADING...</h1>
-            }
+            {pending && <h1>LOADING...</h1>}
             <section className="">
                 {
                     data.map(i => {

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import useDebounce from "../hooks/usedebounce";
 import useFetchApi from "../hooks/usefetchapi";
@@ -21,6 +20,7 @@ const Home = ({ SearchIcon, searchHandler, Icons }) => {
     let { debounceValue } = useDebounce(name)
     //takes debounced value&region value returns api data
     const { data, pending } = useFetchApi(debounceValue, region)
+    console.log(name);
     return (
         <div className="">
             <header className=" flex justify-between shadow-2xl shadow-black-50 p-4" >
@@ -36,13 +36,11 @@ const Home = ({ SearchIcon, searchHandler, Icons }) => {
                     name={name}
                     data={data}
                     inputHandler={inputHandler} />
-
                 <Options setRegion={setRegion} region={region} />
             </nav>
 
             <main>
-                <Cards data={data.slice(0, 8)} pending={pending} />
-
+                <Cards data={data.slice(0, 8)} setName={setName} pending={pending} />
             </main>
             <footer>
                 copyright David Opoku 2020 ©
