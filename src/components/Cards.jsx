@@ -2,11 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useDebounce from "../hooks/usedebounce";
 const Cards = ({ data, pending, setName }) => {
-
     const navigate = useNavigate()
+
     function handleClick(name) {
         setName(name)
-        navigate(`/country`)
+        // navigate(`/country`)
     };
     return (
         <article className="flex flex-wrap justify-center">
