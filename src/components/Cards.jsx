@@ -6,7 +6,7 @@ const Cards = ({ data, pending, setName }) => {
 
     function handleClick(name) {
         setName(name)
-        // navigate(`/country`)
+        navigate('/country')
     };
     return (
         <article className="flex flex-wrap justify-center">
@@ -45,8 +45,6 @@ const Cards = ({ data, pending, setName }) => {
                                     Capital: {i.capital}
                                 </li>
                             </ul>
-
-
                         </section>
                     )
                 })

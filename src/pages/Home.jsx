@@ -5,7 +5,7 @@ import Cards from "../components/Cards";
 import Input from "../components/Input";
 import Nav from "../components/Nav";
 import { Options } from "../components/Filter";
-
+import { FaSun, FaMoon } from 'react-icons/fa'
 const Home = ({ SearchIcon, searchHandler, Icons }) => {
     //sets Default region value is passed as a prop for Options
     const [region, setRegion] = useState('Africa')
@@ -28,6 +28,8 @@ const Home = ({ SearchIcon, searchHandler, Icons }) => {
                     Where in the World?
                 </h1>
                 <Nav Icons={Icons} />
+                <FaMoon size={35} />
+                <FaSun size={35} />
             </header>
 
             <nav className="flex  flex-nowrap">
