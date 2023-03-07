@@ -33,7 +33,7 @@ const Cards = ({ data, pending, setName, setSwitchComp }) => {
                                 </h1>
 
                                 <li>
-                                    Population: {i.population}
+                                    Population: {i.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                                 </li>
                                 <li>
                                     Region: {i.region}

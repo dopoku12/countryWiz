@@ -15,7 +15,6 @@ function App() {
   let { debounceValue } = useDebounce(name)
   //takes debounced value&region value returns api data
   const { data, pending } = useFetchApi(debounceValue, region)
-  console.log(name);
 
   return (
     <div className="text-white min-h-screen bg-slate-800">

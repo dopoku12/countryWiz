@@ -4,7 +4,6 @@ const Content = ({ data, pending, setSwitchComp, setName }) => {
         setSwitchComp(true)
         setName('')
     }
-    console.log(data);
     return (
         <article className="">
             <header>
@@ -18,13 +17,29 @@ const Content = ({ data, pending, setSwitchComp, setName }) => {
             <section className="">
                 {
                     data.map(i => {
+                        console.log(i);
                         let cur = Object.values(i.currencies)
+                        let nativeName = Object.values(i.name.nativeName)
+                        let languages = Object.values(i.languages)
+                        console.log(languages);
                         return (
                             <ul className="country-card" key={i.area}>
                                 <li className="li-imgs">
                                     <img className="flag-img" src={i.flags.svg} alt="flags" />
                                 </li>
+                                <h1>
+                                    {i.name.common}
+                                </h1>
+                                <li>
+                                    Native Name: {nativeName[0].common}
+                                </li>
+                                <li>
+                                    Region: {i.region}
+                                </li>
 
+                                <li>
+                                    Sub Region: {i.subregion}
+                                </li>
                                 <li>
                                     Currencies: {cur[0].name}{cur[0].symbol}
                                 </li>
@@ -34,21 +49,14 @@ const Content = ({ data, pending, setSwitchComp, setName }) => {
 
                                 <li>
                                     Languages: {
-                                        Object.values(i.languages)
+                                        [...languages.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')]
                                     }
                                 </li>
-                                <li>
-                                    Drive Side: {i.car.side}
-                                </li>
+
 
                                 <li>
-                                    Population: {i.population}
+                                    Population: {i.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                                 </li>
-
-                                <li>
-                                    startOfWeek:{i.startOfWeek}
-                                </li>
-
                             </ul>
                         )
                     })
