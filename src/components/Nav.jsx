@@ -1,8 +1,8 @@
-function Nav({ Icons }) {
+function Nav({ links }) {
     return (
         <ul className='flex space-x-3'>
             {
-                Icons.map(i =>
+                links.map(i =>
                     <li key={i.id} className={i.name} >
                         <a target='_blank' rel="noreferrer" href={i.pathName} >
                             <p>

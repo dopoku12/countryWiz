@@ -1,9 +1,19 @@
-import useFetchApi from "../hooks/usefetchapi";
-const Content = () => {
-    const { data, pending } = useFetchApi()
+const Content = ({ data, pending, setSwitchComp, setName }) => {
+
+    function backHandler() {
+        setSwitchComp(true)
+        setName('')
+    }
     console.log(data);
     return (
-        <article className="content">
+        <article className="">
+            <header>
+                <nav>
+                    <button onClick={() => backHandler()}>
+                        back
+                    </button>
+                </nav>
+            </header>
             {pending && <h1>LOADING...</h1>}
             <section className="">
                 {

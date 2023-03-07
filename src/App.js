@@ -1,42 +1,42 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaEnvelope, FaMap, FaHome, FaRocket, FaSearch, } from 'react-icons/fa'
+import { useState } from "react";
 import Home from "./pages/Home";
-
+import useDebounce from "./hooks/usedebounce";
+import useFetchApi from "./hooks/usefetchapi";
+import Content from "./components/Content";
 function App() {
-  // const [status, setStatus] = useState(false)
-  const iconLinks = [
-    {
-      id: 0, colorCode: ' #0077b5', iconName: FaHome,
-      name: 'Home', pathName: '/'
-    },
-    {
-      id: 1, colorCode: '8cac5', iconName: FaMap,
-      name: 'Map', pathName: '/Map'
-    },
-
-    {
-      id: 3, colorCode: '8cac5', iconName: FaRocket,
-      name: 'Portfolio', pathName: 'https://davidopoku-portfolio.netlify.app/'
-    },
-
-    {
-      id: 4, colorCode: 'black', iconName: FaGithub,
-      name: 'Github', pathName: 'https://github.com/dopoku12'
-    },
-    {
-      id: 5, colorCode: ' #0077b5', iconName: FaLinkedin,
-      name: 'Linkedin', pathName: 'https://www.linkedin.com/in/david-opoku-7008721b7'
-    },
-    {
-      id: 6, colorCode: '78cac5', iconName: FaEnvelope,
-      name: 'Email', pathName: ''
-    }]
+  //sets Default region value is passed as a prop for Options
+  const [region, setRegion] = useState('Africa')
+  //Switch component
+  const [switchComp, setSwitchComp] = useState(true)
+  //Default value before anything is entered in Input component
+  let [name, setName] = useState('');
+  //Debounces usr input
+  let { debounceValue } = useDebounce(name)
+  //takes debounced value&region value returns api data
+  const { data, pending } = useFetchApi(debounceValue, region)
+  console.log(name);
 
   return (
     <div className="text-white min-h-screen bg-slate-800">
+      {
 
-      <Home SearchIcon={FaSearch}
-        Icons={iconLinks.filter((i) => i.id >= 3)} />
+        switchComp ?
+          <Home
+            region={region}
+            setRegion={setRegion}
+            name={name}
+            setName={setName}
+            data={data}
+            pending={pending}
+            setSwitchComp={setSwitchComp} />
+          :
+          <Content data={data.slice(0, 1)}
+            pending={pending}
+            setName={setName}
+            setSwitchComp={setSwitchComp}
+          />
+      }
 
 
     </div>

@@ -1,15 +1,12 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import useGeoLocation from "./usegeolocation"
 const useFetchApi = (debounceValue, region) => {
     const [data, setData] = useState([]);
     const [pending, setPending] = useState(true);
     const [error, setErrorHandler] = useState(null);
-    const { usrCountry } = useGeoLocation();
-
     let urlName = `https://restcountries.com/v3.1/name/ ${debounceValue}`;
-    const isoName = `https://restcountries.com/v3.1/alpha/${usrCountry}`;
     const continent = `https://restcountries.com/v3.1/region/${region}`
+
     useEffect(() => {
         const countryApi = ((value = continent) => {
             console.log(continent);
@@ -38,7 +35,7 @@ const useFetchApi = (debounceValue, region) => {
 
         })(debounceValue ? urlName : continent)
         countryApi()
-    }, [debounceValue, isoName, urlName, continent])
+    }, [debounceValue, urlName, continent])
     return { data, pending, error };
 }
 export default useFetchApi;
