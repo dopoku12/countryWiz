@@ -46,15 +46,14 @@
 
 .landing-page-form {
   z-index: 10%;
-  width: 100%;
+  width: 50%;
   border-radius: 35px;
   border: 1px solid white;
   box-shadow: 5px 5px 15px 5px black;
   margin-bottom: 5%;
 }
 .landing-page-form #search-box {
-  font-size: 1.5em;
-  color: white;
+  font-size: 1.2em;
   width: 90%;
   font-style: oblique;
 }
@@ -93,10 +92,6 @@ form input[type=search] {
   border: none;
   background-color: transparent;
   border-radius: inherit;
-  color: white;
-}
-form input[type=search]::placeholder {
-  color: white;
 }
 form button {
   border: 1px solid transparent;

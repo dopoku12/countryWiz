@@ -1,4 +1,4 @@
-const Content = ({ data, pending, setSwitchComp, setName }) => {
+const Content = ({ data, pending, setSwitchComp, setName, FaArrowLeft }) => {
 
     function backHandler() {
         setSwitchComp(true)
@@ -6,10 +6,17 @@ const Content = ({ data, pending, setSwitchComp, setName }) => {
     }
     return (
         <article className="">
-            <header>
+            <header className="m-5 ">
                 <nav>
-                    <button onClick={() => backHandler()}>
-                        back
+                    <button className="bg-slate-700 
+                    hover:bg-slate-800 w-20
+                    flex flex-nowrap items-center"
+
+                        onClick={() => backHandler()}>
+                        <FaArrowLeft className="m-2" />
+                        <h2>
+                            back
+                        </h2>
                     </button>
                 </nav>
             </header>
@@ -23,41 +30,43 @@ const Content = ({ data, pending, setSwitchComp, setName }) => {
                         let languages = Object.values(i.languages)
                         console.log(languages);
                         return (
-                            <ul className="country-card" key={i.area}>
-                                <li className="li-imgs">
-                                    <img className="flag-img" src={i.flags.svg} alt="flags" />
-                                </li>
-                                <h1>
-                                    {i.name.common}
-                                </h1>
-                                <li>
-                                    Native Name: {nativeName[0].common}
-                                </li>
-                                <li>
-                                    Region: {i.region}
-                                </li>
+                            <div className=" flex flex-row">
+                                <img className="object-contain h-55 
+                                w-96" src={i.flags.svg}
+                                    alt="flags" />
+                                <ul className="country-card" key={i.area}>
+                                    <h1>
+                                        {i.name.common}
+                                    </h1>
+                                    <li>
+                                        Native Name: {nativeName[0].common}
+                                    </li>
+                                    <li>
+                                        Region: {i.region}
+                                    </li>
 
-                                <li>
-                                    Sub Region: {i.subregion}
-                                </li>
-                                <li>
-                                    Currencies: {cur[0].name}{cur[0].symbol}
-                                </li>
-                                <li>
-                                    Capital: {i.capital}
-                                </li>
+                                    <li>
+                                        Sub Region: {i.subregion}
+                                    </li>
+                                    <li>
+                                        Currencies: {cur[0].name}{cur[0].symbol}
+                                    </li>
+                                    <li>
+                                        Capital: {i.capital}
+                                    </li>
 
-                                <li>
-                                    Languages: {
-                                        [...languages.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')]
-                                    }
-                                </li>
+                                    <li>
+                                        Languages: {
+                                            [...languages.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')]
+                                        }
+                                    </li>
 
 
-                                <li>
-                                    Population: {i.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                                </li>
-                            </ul>
+                                    <li>
+                                        Population: {i.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                                    </li>
+                                </ul>
+                            </div>
                         )
                     })
                 }

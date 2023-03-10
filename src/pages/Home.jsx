@@ -1,80 +1,32 @@
 import Cards from "../components/Cards";
 import Input from "../components/Input";
-import Nav from "../components/Nav";
 import { Options } from "../components/Filter";
-import {
-    FaGithub, FaLinkedin,
-    FaEnvelope, FaRocket,
-    FaSearch, FaSun, FaMoon
-}
-    from 'react-icons/fa'
-import { useState, useEffect } from "react";
-
-
 const Home = ({
     region, setRegion,
     name, setName,
     data, pending,
-    setSwitchComp
+    setSwitchComp,
+    FaSearch,
+
 }) => {
-    const links = [
-        {
-            id: 3, colorCode: '8cac5', iconName: FaRocket,
-            name: 'Portfolio', pathName: 'https://davidopoku-portfolio.netlify.app/'
-        },
-
-        {
-            id: 4, colorCode: 'black', iconName: FaGithub,
-            name: 'Github', pathName: 'https://github.com/dopoku12'
-        },
-        {
-            id: 5, colorCode: ' #0077b5', iconName: FaLinkedin,
-            name: 'Linkedin', pathName: 'https://www.linkedin.com/in/david-opoku-7008721b7'
-        },
-        {
-            id: 6, colorCode: '78cac5', iconName: FaEnvelope,
-            name: 'Email', pathName: ''
-        }]
-
     //changes setName Value after usrInput
     function inputHandler(e) {
         e.preventDefault();
         setName(e.target.value)
     };
-    //dark mode&light mode toggle
-    const [theme, setTheme] = useState('dark')
+
+
     return (
         <div className="">
-            <header className=" flex justify-between shadow-2xl shadow-black-50 p-4" >
-                <h1 className="font-bold text-4xl ">
-                    Where in the World?
-                </h1>
-                <Nav links={links} />
-                {
-                    useEffect(() => {
-                        theme === 'dark' ?
-                            document.documentElement.classList.add('dark')
-                            :
-                            document.documentElement.classList.remove('dark')
-                    }, [theme])
-                }
-                {
-                    theme === 'dark' ?
-                        <FaSun onClick={() => setTheme('light')}
-                            size={35} />
-                        :
-                        <FaMoon onClick={() => setTheme('dark')}
-                            size={35} />
-                }
-            </header>
 
-            <nav className="flex  flex-nowrap">
+            <nav className=" m-5 flex justify-between flex-nowrap">
                 <Input SearchIcon={FaSearch}
                     setName={setName}
                     name={name}
                     data={data}
                     inputHandler={inputHandler} />
-                <Options setRegion={setRegion} region={region} />
+                <Options setRegion={setRegion}
+                    region={region} />
             </nav>
 
             <main>

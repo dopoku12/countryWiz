@@ -6,7 +6,6 @@ const Input = ({ SearchIcon, inputHandler, setName, name, data }) => {
                 placeholder='Enter Country Name ....'
                 value={name}
                 onChange={inputHandler} />
-
             <button>
                 <SearchIcon
                     type="submit"
