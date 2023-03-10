@@ -26,7 +26,6 @@ const Content = ({ data, pending, setSwitchComp, setName, FaArrowLeft }) => {
             <section className="">
                 {
                     data.map(i => {
-                        console.log(i);
                         let cur = Object.values(i.currencies)
                         let nativeName = Object.values(i.name.nativeName)
                         let languages = Object.values(i.languages)
