@@ -2,7 +2,6 @@ form {
   padding: 2px;
   border-radius: 5px;
   text-align: center;
-
   input[type="search"] {
     outline: none;
     font-size: 1em;
@@ -11,12 +10,7 @@ form {
     border: none;
     background-color: transparent;
     border-radius: inherit;
-    color: white;
   }
-  input[type="search"]::placeholder {
-    color: white;
-  }
-
   button {
     border: 1px solid transparent;
     border-radius: inherit;
@@ -24,12 +18,3 @@ form {
     cursor: pointer;
   }
 }
-
-// .nav-form {
-//   width: 90%;
-//   border: 5px solid black;
-
-//   #nav-search-box {
-//     width: 70%;
-//   }
-// }

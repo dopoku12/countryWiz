@@ -6,7 +6,6 @@ const Input = ({ SearchIcon, inputHandler, setName, name, data }) => {
                 placeholder='Enter Country Name ....'
                 value={name}
                 onChange={inputHandler} />
-
             <button>
                 <SearchIcon
                     type="submit"
@@ -15,7 +14,9 @@ const Input = ({ SearchIcon, inputHandler, setName, name, data }) => {
                     size={15} />
             </button>
             {
-                name && <Filter data={data.slice(0, 10)} setName={setName} />
+                name && <Filter
+                    data={data.slice(0, 10)}
+                    setName={setName} />
             }
         </form >
     );

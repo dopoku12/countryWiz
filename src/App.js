@@ -1,18 +1,19 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaEnvelope, FaMap, FaHome, FaRocket, FaSearch, } from 'react-icons/fa'
+import { useState, useEffect } from "react";
 import Home from "./pages/Home";
+import useDebounce from "./hooks/usedebounce";
+import useFetchApi from "./hooks/usefetchapi";
+import Content from "./components/Content";
+import Nav from "./components/Nav";
+import {
+  FaGithub, FaLinkedin,
+  FaEnvelope, FaRocket,
+  FaSearch, FaArrowLeft, FaSun, FaMoon
+}
+  from 'react-icons/fa'
 function App() {
-  // const [status, setStatus] = useState(false)
-  const iconLinks = [
-    {
-      id: 0, colorCode: ' #0077b5', iconName: FaHome,
-      name: 'Home', pathName: '/'
-    },
-    {
-      id: 1, colorCode: '8cac5', iconName: FaMap,
-      name: 'Map', pathName: '/Map'
-    },
-
+  //external links
+  const links = [
     {
       id: 3, colorCode: '8cac5', iconName: FaRocket,
       name: 'Portfolio', pathName: 'https://davidopoku-portfolio.netlify.app/'
@@ -31,11 +32,66 @@ function App() {
       name: 'Email', pathName: ''
     }]
 
-  return (
-    <div className="text-white min-h-screen bg-slate-800">
+  //sets Default region value is passed as a prop for Options
+  const [region, setRegion] = useState('Africa')
+  //Switch component
+  const [switchComp, setSwitchComp] = useState(true)
+  //Default value before anything is entered in Input component
+  let [name, setName] = useState('');
+  //Debounces usr input
+  let { debounceValue } = useDebounce(name)
+  //takes debounced value&region value returns api data
+  const { data, pending } = useFetchApi(debounceValue, region)
 
-      <Home SearchIcon={FaSearch}
-        Icons={iconLinks.filter((i) => i.id >= 3)} />
+  //dark mode&light mode toggle
+  const [theme, setTheme] = useState('dark')
+  useEffect(() => {
+    theme === 'dark' ?
+      document.documentElement.classList.add('dark')
+      :
+      document.documentElement.classList.remove('dark')
+  }, [theme])
+
+  return (
+    <div className=" bg-slate-100 
+    dark:bg-slate-900 
+    dark:text-white
+    min-h-screen">
+      <header className=" 
+      dark:bg-slate-800
+      flex justify-between shadow-2xl 
+      shadow-black-50 p-4" >
+        <h1 className="font-bold text-2xl ">
+          Where in the World?
+        </h1>
+        <Nav links={links} />
+        {
+          theme === 'dark' ?
+            <FaSun size={35} onClick={() => setTheme('light')} />
+            : <FaMoon size={35} onClick={() => setTheme('dark')} />
+        }
+      </header>
+
+      {
+        switchComp ?
+          <Home
+            region={region}
+            setRegion={setRegion}
+            name={name}
+            setName={setName}
+            data={data}
+            pending={pending}
+            setSwitchComp={setSwitchComp}
+            FaSearch={FaSearch}
+          />
+          :
+          <Content data={data.slice(0, 1)}
+            pending={pending}
+            setName={setName}
+            setSwitchComp={setSwitchComp}
+            FaArrowLeft={FaArrowLeft}
+          />
+      }
     </div>
   );
 }
