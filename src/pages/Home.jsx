@@ -8,6 +8,8 @@ import {
     FaSearch, FaSun, FaMoon
 }
     from 'react-icons/fa'
+import { useState, useEffect } from "react";
+
 
 const Home = ({
     region, setRegion,
@@ -39,7 +41,8 @@ const Home = ({
         e.preventDefault();
         setName(e.target.value)
     };
-
+    //dark mode&light mode toggle
+    const [theme, setTheme] = useState('dark')
     return (
         <div className="">
             <header className=" flex justify-between shadow-2xl shadow-black-50 p-4" >
@@ -47,8 +50,22 @@ const Home = ({
                     Where in the World?
                 </h1>
                 <Nav links={links} />
-                <FaMoon size={35} />
-                <FaSun size={35} />
+                {
+                    useEffect(() => {
+                        theme === 'dark' ?
+                            document.documentElement.classList.add('dark')
+                            :
+                            document.documentElement.classList.remove('dark')
+                    }, [theme])
+                }
+                {
+                    theme === 'dark' ?
+                        <FaSun onClick={() => setTheme('light')}
+                            size={35} />
+                        :
+                        <FaMoon onClick={() => setTheme('dark')}
+                            size={35} />
+                }
             </header>
 
             <nav className="flex  flex-nowrap">

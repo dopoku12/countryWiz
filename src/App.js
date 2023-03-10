@@ -17,9 +17,11 @@ function App() {
   const { data, pending } = useFetchApi(debounceValue, region)
 
   return (
-    <div className="text-white min-h-screen bg-slate-800">
+    <div className=" bg-white 
+    dark:bg-slate-900 
+    dark:text-white
+    min-h-screen">
       {
-
         switchComp ?
           <Home
             region={region}
