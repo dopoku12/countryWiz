@@ -14,7 +14,9 @@ const Input = ({ SearchIcon, inputHandler, setName, name, data }) => {
                     size={15} />
             </button>
             {
-                name && <Filter data={data.slice(0, 10)} setName={setName} />
+                name && <Filter
+                    data={data.slice(0, 10)}
+                    setName={setName} />
             }
         </form >
     );

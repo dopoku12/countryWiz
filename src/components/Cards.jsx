@@ -1,25 +1,20 @@
-import { useNavigate } from "react-router-dom";
-const Cards = ({ data, pending, setName, setSwitchComp }) => {
-    const navigate = useNavigate()
-
+const Cards = ({ data, setName, setSwitchComp, pending }) => {
     function handleClick(name) {
         setName(name)
         setSwitchComp(false)
     };
     return (
         <article className="flex flex-wrap justify-center">
-            {
-                pending && <h1>LOADING...</h1>
-            }
+            {pending && <span className="loader"></span>}
             {
                 data.map(i => {
                     return (
                         <section key={i.area}
                             className="m-4">
                             <ul className="max-w-sm 
-                            rounded 
-                            overflow-hidden 
-                            shadow-2xl"
+                        rounded 
+                        overflow-hidden 
+                        shadow-2xl"
                                 onClick={() => handleClick(i.name.common)}
                                 value={i.name.common}
                             >

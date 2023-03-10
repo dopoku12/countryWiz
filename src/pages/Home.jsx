@@ -6,19 +6,15 @@ const Home = ({
     name, setName,
     data, pending,
     setSwitchComp,
-    FaSearch,
-
+    FaSearch
 }) => {
     //changes setName Value after usrInput
     function inputHandler(e) {
         e.preventDefault();
         setName(e.target.value)
     };
-
-
     return (
-        <div className="">
-
+        <div >
             <nav className=" m-5 flex justify-between flex-nowrap">
                 <Input SearchIcon={FaSearch}
                     setName={setName}
@@ -28,7 +24,6 @@ const Home = ({
                 <Options setRegion={setRegion}
                     region={region} />
             </nav>
-
             <main>
                 <Cards data={data.slice(0, 8)}
                     setName={setName}

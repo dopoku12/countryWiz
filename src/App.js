@@ -58,7 +58,7 @@ function App() {
     dark:text-white
     min-h-screen">
       <header className=" 
-      bg-slate-800
+      dark:bg-slate-800
       flex justify-between shadow-2xl 
       shadow-black-50 p-4" >
         <h1 className="font-bold text-2xl ">
